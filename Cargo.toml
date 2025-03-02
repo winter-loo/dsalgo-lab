@@ -3,4 +3,12 @@ name = "dsalgo-lab"
 version = "0.1.0"
 edition = "2024"
 
-[dependencies]
+[lib]
+name = "dsalgo"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "bench_to_u32"
+harness = false
