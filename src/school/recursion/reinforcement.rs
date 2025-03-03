@@ -76,7 +76,11 @@ pub fn min_max_sequence(seq: &[i32]) -> Option<(i32, i32)> {
 }
 
 pub fn log2(n: u32) -> f32 {
-    if n <= 1 { 0.0 } else { 1.0 + log2(n / 2) }
+    if n <= 1 {
+        0.0
+    } else {
+        1.0 + log2(n / 2)
+    }
 }
 
 struct Step {
@@ -193,6 +197,29 @@ fn rearrange_even_before_odd(seq: &mut [i32]) {
     } else {
         rearrange_even_before_odd(&mut seq[0..last]);
     }
+}
+
+// seq in increasing order
+// find i, j such that seq[i] + seq[j] == k
+// (0, n-1) => seq[0] + seq[n-1] > k,
+// (0, n-2) => seq[0] + seq[n-2] > k,
+// (0, n-3) => seq[0] + seq[n-3] < k,
+// (1, n-3) => seq[1] + seq[n-3] == k
+fn two_sum(seq: &[u32], k: u32) -> Option<(usize, usize)> {
+    fn inner(seq: &[u32], k: u32, i: usize, j: usize) -> Option<(usize, usize)> {
+        if i >= j {
+            return None;
+        }
+        let sum = seq[i] + seq[j];
+        if sum == k {
+            return Some((i, j));
+        } else if sum > k {
+            return inner(seq, k, i, j - 1);
+        } else {
+            return inner(seq, k, i + 1, j);
+        }
+    }
+    inner(seq, k, 0, seq.len() - 1)
 }
 
 #[cfg(test)]
@@ -326,6 +353,16 @@ mod test {
         let mut s7 = [2];
         rearrange_even_before_odd(&mut s7);
         assert_eq!(s7, [2]);
+    }
 
+    #[test]
+    fn test_two_sum() {
+        let seq = [1, 2, 3, 4, 5, 6];
+        assert_eq!(two_sum(&seq, 7), Some((0, 5)));
+        assert_eq!(two_sum(&seq, 8), Some((1, 5)));
+        assert_eq!(two_sum(&seq, 9), Some((2, 5)));
+        assert_eq!(two_sum(&seq, 3), Some((0, 1)));
+        assert_eq!(two_sum(&seq, 4), Some((0, 2)));
+        assert_eq!(two_sum(&seq, 12), None);
     }
 }
