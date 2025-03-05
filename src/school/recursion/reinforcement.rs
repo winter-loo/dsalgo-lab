@@ -205,6 +205,9 @@ fn rearrange_even_before_odd(seq: &mut [i32]) {
 // (0, n-2) => seq[0] + seq[n-2] > k,
 // (0, n-3) => seq[0] + seq[n-3] < k,
 // (1, n-3) => seq[1] + seq[n-3] == k
+//
+// why recursion?
+// every time we can shrink the problem to the same smaller problem
 fn two_sum(seq: &[u32], k: u32) -> Option<(usize, usize)> {
     fn inner(seq: &[u32], k: u32, i: usize, j: usize) -> Option<(usize, usize)> {
         if i >= j {
@@ -220,6 +223,24 @@ fn two_sum(seq: &[u32], k: u32) -> Option<(usize, usize)> {
         }
     }
     inner(seq, k, 0, seq.len() - 1)
+}
+
+// why recursion?
+// every time we can shrink the problem to the same smaller problem
+fn bubble_sort(seq: &mut [isize]) {
+    if seq.len() <= 1 {
+        return;
+    }
+
+    // swap with the neighbor until a biggest neighbor selected
+    // and put in the last position
+    let last = seq.len() - 1;
+    for i in 0..last {
+        if seq[i] > seq[i + 1] {
+            seq.swap(i, i + 1);
+        }
+    }
+    bubble_sort(&mut seq[0..last]);
 }
 
 #[cfg(test)]
@@ -364,5 +385,12 @@ mod test {
         assert_eq!(two_sum(&seq, 3), Some((0, 1)));
         assert_eq!(two_sum(&seq, 4), Some((0, 2)));
         assert_eq!(two_sum(&seq, 12), None);
+    }
+
+    #[test]
+    fn test_bubble_sort() {
+        let mut seq = [1, 4, 2, 5, 3, 9];
+        bubble_sort(&mut seq);
+        assert_eq!(seq, [1, 2, 3, 4, 5, 9]);
     }
 }
