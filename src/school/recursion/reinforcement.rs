@@ -38,8 +38,8 @@ pub fn to_u32_from_right(s: &str) -> u32 {
     }
     match s.len() {
         0 => panic!("empty string"),
-        1 => last_int(&s),
-        _ => to_u32_from_right(&s[0..s.len() - 1]) * 10 + last_int(&s),
+        1 => last_int(s),
+        _ => to_u32_from_right(&s[0..s.len() - 1]) * 10 + last_int(s),
     }
 }
 
@@ -59,8 +59,8 @@ pub fn to_u32_from_left(s: &str) -> u32 {
     }
     match s.len() {
         0 => panic!("empty string"),
-        1 => next_int(&s),
-        _ => next_int(&s) * 10u32.pow((s.len() - 1) as u32) + to_u32_from_left(&s[1..]),
+        1 => next_int(s),
+        _ => next_int(s) * 10u32.pow((s.len() - 1) as u32) + to_u32_from_left(&s[1..]),
     }
 }
 
@@ -157,7 +157,7 @@ fn is_palindrom(s: &[u8]) -> bool {
     if s.len() <= 1 {
         return true;
     }
-    return s.first().unwrap() == s.last().unwrap() && is_palindrom(&s[1..s.len() - 1]);
+    s.first().unwrap() == s.last().unwrap() && is_palindrom(&s[1..s.len() - 1])
 }
 
 fn more_vowels_than_consonants(s: &[u8]) -> bool {
@@ -214,12 +214,10 @@ fn two_sum(seq: &[u32], k: u32) -> Option<(usize, usize)> {
             return None;
         }
         let sum = seq[i] + seq[j];
-        if sum == k {
-            return Some((i, j));
-        } else if sum > k {
-            return inner(seq, k, i, j - 1);
-        } else {
-            return inner(seq, k, i + 1, j);
+        match sum.cmp(&k) {
+            std::cmp::Ordering::Equal => Some((i, j)),
+            std::cmp::Ordering::Greater => inner(seq, k, i, j - 1),
+            _ => inner(seq, k, i + 1, j),
         }
     }
     inner(seq, k, 0, seq.len() - 1)
@@ -241,6 +239,121 @@ fn bubble_sort(seq: &mut [isize]) {
         }
     }
     bubble_sort(&mut seq[0..last]);
+}
+
+use std::collections::{HashMap, HashSet};
+
+struct SummationPuzzle {
+    operands: Vec<String>,
+    target: String,
+}
+
+impl SummationPuzzle {
+    // A + B + C == D
+    fn new(input: &str) -> Self {
+        let mut operands: Vec<_> = input
+            .split(|c: char| c.is_ascii_whitespace() || c == '+')
+            .filter(|s| !s.is_empty())
+            .collect();
+        if operands.len() < 3 {
+            panic!("invalid input");
+        }
+
+        let target = operands.pop().unwrap().to_string();
+        let equal_sign = operands.pop().unwrap();
+        if equal_sign != "==" {
+            panic!("invalid input");
+        }
+        let operands = operands.into_iter().map(|s| s.to_string()).collect();
+        SummationPuzzle { operands, target }
+    }
+
+    fn test_configuration(&self, configuration: &HashMap<char, u8>) -> bool {
+        // println!("configuration: {configuration:?}");
+        let to_u32 = |s: &String| -> u32 {
+            let mut total = 0u32;
+            for (i, c) in s.chars().enumerate() {
+                let n = configuration.get(&c).unwrap();
+                // the first digit should not be 0
+                if *n == 0 && i == 0 {
+                    return 0;
+                }
+                total += (*n as u32) * 10u32.pow((s.len() - 1 - i) as u32);
+            }
+            total
+        };
+
+        let mut operands = vec![];
+        for opd in &self.operands {
+            let n = to_u32(opd);
+            if n == 0 {
+                return false;
+            }
+            operands.push(n);
+        }
+        let target = to_u32(&self.target);
+        if target == 0 {
+            return false;
+        }
+        operands.iter().sum::<u32>() == target
+    }
+
+    fn make_configuration(&self, configuration: &[u8]) -> HashMap<char, u8> {
+        let chars: std::collections::BTreeSet<char> = self
+            .operands
+            .iter()
+            .chain(std::iter::once(&self.target))
+            .flat_map(|s| s.chars())
+            .collect();
+        chars.into_iter().zip(configuration.to_vec()).collect()
+    }
+
+    fn num_distinct_chars(&self) -> usize {
+        let chars: std::collections::BTreeSet<char> = self
+            .operands
+            .iter()
+            .chain(std::iter::once(&self.target))
+            .flat_map(|s| s.chars())
+            .collect();
+        chars.len()
+    }
+
+    pub fn solve(input: &str) -> Option<HashMap<char, u8>> {
+        let puzzle = SummationPuzzle::new(input);
+
+        let digits = vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let mut digits: HashSet<_> = digits.into_iter().collect();
+        let mut seq = Vec::with_capacity(puzzle.num_distinct_chars());
+        Self::puzzle_solver(&puzzle, seq.capacity(), &mut seq, &mut digits)
+    }
+
+    fn puzzle_solver(
+        puzzle: &SummationPuzzle,
+        k: usize,
+        seq: &mut Vec<u8>,
+        digits: &mut HashSet<u8>,
+    ) -> Option<HashMap<char, u8>> {
+        // println!("k={k} seq={seq:?} digits={digits:?}");
+        for d in digits.iter() {
+            seq.push(*d);
+            let mut new_digits = digits.clone();
+            new_digits.remove(d);
+            if k == 1 {
+                let configuration = puzzle.make_configuration(seq);
+                if puzzle.test_configuration(&configuration) {
+                    // println!("solution found: {configuration:?}");
+                    return Some(configuration);
+                }
+                seq.pop();
+            } else {
+                if let Some(s) = Self::puzzle_solver(puzzle, k - 1, seq, &mut new_digits) {
+                    return Some(s);
+                }
+                seq.pop();
+            }
+        }
+        None
+    }
 }
 
 #[cfg(test)]
@@ -392,5 +505,43 @@ mod test {
         let mut seq = [1, 4, 2, 5, 3, 9];
         bubble_sort(&mut seq);
         assert_eq!(seq, [1, 2, 3, 4, 5, 9]);
+    }
+
+    #[test]
+    fn puzzle_with_eight_letters() {
+        let solution = SummationPuzzle::solve("SEND + MORE == MONEY");
+        let expected = [
+            ('S', 9),
+            ('E', 5),
+            ('N', 6),
+            ('D', 7),
+            ('M', 1),
+            ('O', 0),
+            ('R', 8),
+            ('Y', 2),
+        ]
+        .into_iter()
+        .collect();
+        assert_eq!(solution, Some(expected))
+    }
+
+    #[test]
+    fn puzzle_with_three_letters() {
+        let answer = SummationPuzzle::solve("I + BB == ILL");
+        let expected = [('I', 1), ('B', 9), ('L', 0)].into_iter().collect();
+        assert_eq!(answer, Some(expected));
+    }
+
+    #[test]
+    fn solution_must_have_unique_value_for_each_letter() {
+        let answer = SummationPuzzle::solve("A == B");
+        assert_eq!(answer, None);
+    }
+
+    #[test]
+    fn test_puzzle_input() {
+        let puzzle = SummationPuzzle::new("I +    BB == ILL");
+        let expected = [('I', 1), ('B', 9), ('L', 0)].into_iter().collect();
+        assert_eq!(puzzle.test_configuration(&expected), true);
     }
 }
