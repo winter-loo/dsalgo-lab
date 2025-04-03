@@ -1,5 +1,7 @@
 # NeetCode 150 Rust Implementation
 
+[neetcode 150 problems](./neetcode150.txt)
+
 This project contains Rust implementations of the NeetCode 150 problems from https://neetcode.io/practice?tab=neetcode150.
 
 The rust scraper code is put in the `scraper` folder and the scraper should generate a rust project structure like the below:
@@ -24,12 +26,21 @@ neetcode150/
 page structure:
 
 ```javascript
-a = document.querySelectorAll('tbody[_ngcontent-clv-c41]');
+a = document.querySelectorAll('app-pattern-table tbody');
 for (let i = 0; i < a.length; i++) {
     b = a[i].querySelectorAll('tr');
     for (let j = 0; j < b.length; j++) {
-        c = b[j].querySelector('td:nth-child(3) a:nth-child(2)');
-        console.log(c.getAttribute('href'))
+        problem_title = b[j].querySelector('td:nth-child(3) a:nth-child(1)');
+        leetcode_link = b[j].querySelector('td:nth-child(3) a:nth-child(2)');
+        console.log(`${problem_title.textContent} ${leetcode_link.getAttribute('href')}`)
+    }
+}
+```
+
+```text
+foreach `app-pattern-table tbody` {
+    foreach `tr` {
+        yield (`td:nth-child(3) a:nth-child(1)`.innerText, `td:nth-child(3) a:nth-child(2)`[href])
     }
 }
 ```
