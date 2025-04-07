@@ -12,7 +12,7 @@
 - [x] 12. [3Sum](https://leetcode.com/problems/3sum/)
 - [x] 13. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
 - [x] 14. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
-- [ ] 15. [Best Time to Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+- [x] 15. [Best Time to Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [ ] 16. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [ ] 17. [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
 - [ ] 18. [Permutation In String](https://leetcode.com/problems/permutation-in-string/)
