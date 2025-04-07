@@ -39,7 +39,7 @@ fn test_all_unique_characters() {
 #[test]
 fn test_with_spaces_and_symbols() {
     let s = "ab c!d#e".to_string();
-    assert_eq!(Solution::length_of_longest_substring(s), 7);
+    assert_eq!(Solution::length_of_longest_substring(s), 8);
 }
 
 #[test]
