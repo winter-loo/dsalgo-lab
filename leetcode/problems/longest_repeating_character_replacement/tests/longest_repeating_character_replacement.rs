@@ -48,3 +48,17 @@ fn test_long_string() {
     let k = 3;
     assert_eq!(Solution::character_replacement(s, k), 4);
 }
+
+#[test]
+fn test_example_3() {
+    let s = "ABBB".to_string();
+    let k = 2;
+    assert_eq!(Solution::character_replacement(s, k), 4);
+}
+
+#[test]
+fn test_example_4() {
+    let s = "MQLLQTRQDDCOERARHGAAARRBKCCMFTDAQ".to_string();
+    let k = 7;
+    assert_eq!(Solution::character_replacement(s, k), 11);
+}

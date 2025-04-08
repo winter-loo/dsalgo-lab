@@ -29,8 +29,3 @@ There may exist other ways to achieve this answer too.
 - `1 <= s.length <= 10^5`
 - `s` consists of only uppercase English letters.
 - `0 <= k <= s.length`
-
-## Topics
-- Hash Table
-- String
-- Sliding Window
