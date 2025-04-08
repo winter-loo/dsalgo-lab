@@ -62,3 +62,24 @@ fn test_example_4() {
     let k = 7;
     assert_eq!(Solution::character_replacement(s, k), 11);
 }
+
+#[test]
+fn test_example_5() {
+    let s = "BAAAB".to_string();
+    let k = 2;
+    assert_eq!(Solution::character_replacement(s, k), 5);
+}
+
+#[test]
+fn test_example_6() {
+    let s = "ABCDDD".to_string();
+    let k = 3;
+    assert_eq!(Solution::character_replacement(s, k), 6);
+}
+
+#[test]
+fn test_example_7() {
+    let s ="IMNJJTRMJEGMSOLSCCQICIHLQIOGBJAEHQOCRAJQMBIBATGLJDTBNCPIFRDLRIJHRABBJGQAOLIKRLHDRIGERENNMJSDSSMESSTR".to_string();
+    let k = 2;
+    assert_eq!(Solution::character_replacement(s, k), 6);
+}
