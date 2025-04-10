@@ -163,102 +163,150 @@ fn fact(n: usize) -> usize {
 
 pub fn permutation_iter<'a>(
     seq: &'a mut [char],
-    l: usize,
-    r: usize,
+    _l: usize,  // Used only for API compatibility
+    _r: usize,  // Used only for API compatibility
 ) -> impl Iterator<Item = String> + 'a {
+    let n = seq.len();
+    
     PermutationIter {
         seq,
-        lefts: vec![l],
-        indicies: vec![],
-        r,
-        i: r,
+        state: vec![0; n],  // Initialize state array with zeros
+        n,                  // Store sequence length
+        first: true,        // First call flag
+        done: false,        // Done flag
     }
-    // PermutationIterOpt {
-    //     seq,
-    //     lefts: vec![l],
-    //     indicies: vec![],
-    //     r,
-    //     i: 0,
-    // }
 }
 
+/// A permutation iterator that uses Heap's algorithm.
+/// This is an efficient non-recursive implementation that minimizes the number of swaps.
 struct PermutationIter<'a> {
     seq: &'a mut [char],
-    lefts: Vec<usize>,
-    indicies: Vec<usize>,
-    r: usize,
-    i: usize,
+    // Tracks the state of the algorithm for each level
+    state: Vec<usize>,
+    // Size of the sequence
+    n: usize,
+    // Flag for the first permutation
+    first: bool,
+    // Flag to indicate when we're done
+    done: bool,
 }
 
 impl<'a> Iterator for PermutationIter<'a> {
     type Item = String;
 
     fn next(&mut self) -> Option<Self::Item> {
-        let l = self.lefts.last().copied().unwrap_or(0);
-        if self.i >= l || !self.indicies.is_empty() {
-            if self.i < l {
-                println!("iteration done, return to upper level");
-                self.lefts.pop();
-                self.i = self.indicies.pop().unwrap();
-                println!("start from previous i={}", self.i);
-                // get current left
-                let l = self.lefts.last().copied().unwrap();
-
-                let n = self.r - l + 1;
-                println!("swapping where n = {} i = {}", n, self.i);
-                if n % 2 == 0 {
-                    self.seq.swap(self.i, l);
-                } else {
-                    self.seq.swap(self.r, l);
-                }
-
-                self.i = self.i.saturating_sub(1);
-                println!("next i={}", self.i);
-                if n == self.seq.len() && self.i == 0 {
-                    println!("whole done, indicies={:?}", self.indicies);
-                    return None;
-                }
-            }
-            println!("go down to single element");
-            while let Some(l) = self.lefts.last().copied() {
-                if l == self.r {
-                    break;
-                }
-                // save current position
-                self.indicies.push(self.i);
-                // to lower level
-                self.lefts.push(l + 1);
-                // start from new left
-                self.i = self.r;
-            }
-            // reached to the single element, time to output current permutation
-            if let Some(top) = self.lefts.last().copied() {
-                // save current permutation
-                let item = self.seq.iter().collect();
-                println!("l={} r={} s={}", top, self.r, item);
-                // to upper level
-                self.lefts.pop();
-                // restore current position
-                self.i = self.indicies.pop().unwrap();
-                // get current left
-                let l = self.lefts.last().copied().unwrap();
-
-                let n = self.r - l + 1;
-                println!("swapping where n={} i={}", n, self.i);
-                if n % 2 == 0 {
-                    self.seq.swap(self.i, l);
-                } else {
-                    self.seq.swap(self.r, l);
-                }
-
-                self.i = self.i.saturating_sub(1);
-                println!("next i={}", self.i);
-                return Some(item);
+        // If we're done, return None
+        if self.done {
+            return None;
+        }
+        
+        // For the first call, just return the initial sequence without any swaps
+        if self.first {
+            self.first = false;
+            return Some(self.seq.iter().collect());
+        }
+        
+        // Heap's algorithm (non-recursive implementation)
+        let mut i = 0;
+        while i < self.n {
+            if self.state[i] < i {
+                // Determine which elements to swap based on parity
+                let j = if i % 2 == 0 { 0 } else { self.state[i] };
+                
+                // Perform the swap
+                self.seq.swap(j, i);
+                
+                // Update state and move to the next permutation
+                self.state[i] += 1;
+                return Some(self.seq.iter().collect());
+            } else {
+                // Reset state and move to the next position
+                self.state[i] = 0;
+                i += 1;
             }
         }
+        
+        // If we've gone through all permutations, we're done
+        self.done = true;
         None
     }
 }
+
+
+// impl<'a> Iterator for PermutationIter<'a> {
+//     type Item = String;
+// 
+//     fn next(&mut self) -> Option<Self::Item> {
+//         let l = self.lefts.last().copied().unwrap_or(0);
+//         if self.i >= l || !self.indicies.is_empty() {
+//             if self.i < l {
+//                 println!("iteration done, return to upper level");
+//                 loop {
+//                     self.lefts.pop();
+//                     self.i = self.indicies.pop().unwrap();
+//                     println!("start from previous i={}", self.i);
+//                     if self.i > l || self.indicies.is_empty() {
+//                         break;
+//                     } else {
+//                         println!("indicies: {:?}", self.indicies);
+//                     }
+//                 }
+// 
+//                 let n = self.r - l + 1;
+//                 println!("swapping where n={} i={} l={}", n, self.i, l);
+//                 if n % 2 == 0 {
+//                     self.seq.swap(self.i, l);
+//                 } else {
+//                     self.seq.swap(self.r, l);
+//                 }
+// 
+//                 self.i = self.i.saturating_sub(1);
+//                 println!("next i={}", self.i);
+//                 if n == self.seq.len() && self.i == 0 {
+//                     println!("whole done, indicies={:?}", self.indicies);
+//                     return None;
+//                 }
+//             }
+//             println!("go down to single element");
+//             while let Some(l) = self.lefts.last().copied() {
+//                 if l == self.r {
+//                     break;
+//                 }
+//                 // save current position
+//                 self.indicies.push(self.i);
+//                 // to lower level
+//                 self.lefts.push(l + 1);
+//                 // start from new left
+//                 self.i = self.r;
+//             }
+//             // reached to the single element, time to output current permutation
+//             if let Some(top) = self.lefts.last().copied() {
+//                 // save current permutation
+//                 let item = self.seq.iter().collect();
+//                 println!("l={} r={} s={}", top, self.r, item);
+//                 // to upper level
+//                 self.lefts.pop();
+//                 // restore current position
+//                 self.i = self.indicies.pop().unwrap();
+//                 // get current left
+//                 let l = self.lefts.last().copied().unwrap();
+// 
+//                 let n = self.r - l + 1;
+//                 println!("on swapping where n={} i={} l={}", n, self.i, l);
+//                 if n % 2 == 0 {
+//                     self.seq.swap(self.i, l);
+//                 } else {
+//                     self.seq.swap(self.r, l);
+//                 }
+// 
+//                 self.i = self.i.saturating_sub(1);
+//                 println!("on next i={}", self.i);
+//                 return Some(item);
+//             }
+//         }
+//         None
+//     }
+// }
 
 struct PermutationIterOpt<'a> {
     seq: &'a mut [char],
