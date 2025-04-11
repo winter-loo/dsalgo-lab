@@ -10,10 +10,10 @@ fn main() {
 
     // let v = permutation_of_heap_fixed(&mut s, 0, s1.len() - 1);
     // println!("v={v:#?} len={}", v.len());
-    // let vs = v.iter().collect::<BtreeSet<_>>();
+    // let vs = v.iter().collect::<BTreeSet<_>>();
     // println!("vs={vs:#?} len={}", vs.len());
 
-    let perm = permutation_iter(&mut s, 0, s1.len() - 1);
+    let perm = permutation_iter(s1);
     let v: Vec<_> = perm.collect();
     for p in v.iter() {
         println!("p={p}");
