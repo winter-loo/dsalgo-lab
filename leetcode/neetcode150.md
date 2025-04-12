@@ -18,7 +18,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 16. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [x] 17. ~~[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)~~
 - [x] 18. [Permutation In String](https://leetcode.com/problems/permutation-in-string/)
-- [ ] 19. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
+- [x] 19. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 - [ ] 20. [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [ ] 21. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [ ] 22. [Min Stack](https://leetcode.com/problems/min-stack/)
