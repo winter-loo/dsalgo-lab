@@ -62,3 +62,24 @@ fn test_no_permutation() {
     let s2 = "abcdefg".to_string();
     assert_eq!(Solution::check_inclusion(s1, s2), false);
 }
+
+#[test]
+fn test_example_3() {
+    let s1 = "hello".to_string();
+    let s2 = "ooolleoooleh".to_string();
+    assert_eq!(Solution::check_inclusion(s1, s2), false);
+}
+
+#[test]
+fn test_example_4() {
+    let s1 = "industry".to_string();
+    let s2 = "interest".to_string();
+    assert_eq!(Solution::check_inclusion(s1, s2), false);
+}
+
+#[test]
+fn test_example_5() {
+    let s1 = "ab".to_string();
+    let s2 = "aba".to_string();
+    assert_eq!(Solution::check_inclusion(s1, s2), true);
+}

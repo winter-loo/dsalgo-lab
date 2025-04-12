@@ -17,7 +17,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 15. [Best Time to Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [x] 16. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [x] 17. ~~[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)~~
-- [ ] 18. [Permutation In String](https://leetcode.com/problems/permutation-in-string/)
+- [x] 18. [Permutation In String](https://leetcode.com/problems/permutation-in-string/)
 - [ ] 19. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 - [ ] 20. [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [ ] 21. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)

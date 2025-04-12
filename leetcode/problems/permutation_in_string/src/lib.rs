@@ -1,45 +1,45 @@
 #![allow(dead_code)]
 
-use std::collections::HashMap;
-
 pub struct Solution;
+
+use std::collections::HashMap;
 
 impl Solution {
     pub fn check_inclusion(s1: String, s2: String) -> bool {
-        // println!("s1={s1} s2={s2}");
-
-        let mut m = HashMap::new();
-        for c in s1.chars() {
-            *m.entry(c).or_insert(0) += 1;
+        if s1.len() > s2.len() {
+            return false;
         }
 
-        let (mut l, mut r) = (0, 0);
+        let mut s1_counts = HashMap::new();
+        for c in s1.chars() {
+            *s1_counts.entry(c).or_insert(0) += 1;
+        }
+
         let s2: Vec<char> = s2.chars().collect();
 
-        let mut m2: HashMap<char, Vec<usize>> = HashMap::new();
+        let mut window_counts = HashMap::new();
+        for i in 0..s1.len() {
+            *window_counts.entry(s2[i]).or_insert(0) += 1;
+        }
 
+        if s1_counts == window_counts {
+            return true;
+        }
+
+        let (mut l, mut r) = (0, s1.len());
         while r < s2.len() {
-            // println!("l={l} r={r}");
-            if let Some(n) = m.get_mut(&s2[r]) {
-                if *n > 0 {
-                    if r - l + 1 == s1.len() {
-                        return true
-                    }
-
-                    m2.entry(s2[r]).or_insert(vec![]).push(r);
-                    *n -= 1;
-                    r += 1;
-                } else {
-                    let indicies = m2.get_mut(&s2[r]).unwrap();
-                    l = indicies.remove(0) + 1;
-                    indicies.push(r);
-                    *n = indicies.len();
+            *window_counts.entry(s2[r]).or_insert(0) += 1;
+            if let Some(n) = window_counts.get_mut(&s2[l]) {
+                *n -= 1;
+                if *n == 0 {
+                    window_counts.remove(&s2[l]);
                 }
-            } else {
-                m2.clear();
-                r += 1;
-                l = r;
             }
+            if s1_counts == window_counts {
+                return true;
+            }
+            l += 1;
+            r += 1;
         }
         false
     }
