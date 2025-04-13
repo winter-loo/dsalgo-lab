@@ -47,3 +47,11 @@ fn test_with_duplicates() {
     let expected = vec![1, 1, 1, 1, 1, 1];
     assert_eq!(Solution::max_sliding_window(nums, k), expected);
 }
+
+#[test]
+fn test_example_3() {
+    let nums = vec![9, 10, 9, -7, -4, -8, 2, -6];
+    let k = 5;
+    let expected = vec![10, 10, 9, 2];
+    assert_eq!(Solution::max_sliding_window(nums, k), expected);
+}
