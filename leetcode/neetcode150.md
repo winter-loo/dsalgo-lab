@@ -19,9 +19,9 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 17. ~~[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)~~
 - [x] 18. [Permutation In String](https://leetcode.com/problems/permutation-in-string/)
 - [x] 19. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
-- [ ] 20. [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
-- [ ] 21. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
-- [ ] 22. [Min Stack](https://leetcode.com/problems/min-stack/)
+- [x] 20. [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+- [x] 21. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- [x] 22. [Min Stack](https://leetcode.com/problems/min-stack/)
 - [ ] 23. [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
 - [ ] 24. [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
 - [ ] 25. [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)

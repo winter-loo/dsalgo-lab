@@ -1,27 +1,33 @@
+#![allow(unused)]
 // MinStack implementation
 // Design a stack that supports push, pop, top, and retrieving the minimum element in constant time
-
-struct MinStack {
+pub struct MinStack {
+    stack: Vec<(i32, i32)>,
 }
 
 impl MinStack {
-    fn new() -> Self {
-        todo!();
+    pub fn new() -> Self {
+        MinStack { stack: vec![] }
     }
-    
-    fn push(&mut self, val: i32) {
-        todo!();
+
+    pub fn push(&mut self, val: i32) {
+        let m = if let Some((_, m)) = self.stack.last() {
+            (*m).min(val)
+        } else {
+            val
+        };
+        self.stack.push((val, m));
     }
-    
-    fn pop(&mut self) {
-        todo!();
+
+    pub fn pop(&mut self) {
+        self.stack.pop();
     }
-    
-    fn top(&self) -> i32 {
-        todo!();
+
+    pub fn top(&self) -> i32 {
+        self.stack.last().copied().unwrap_or((0, 0)).0
     }
-    
-    fn get_min(&self) -> i32 {
-        todo!();
+
+    pub fn get_min(&self) -> i32 {
+        self.stack.last().copied().unwrap_or((0, 0)).1
     }
 }
