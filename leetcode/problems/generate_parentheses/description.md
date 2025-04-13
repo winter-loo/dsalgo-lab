@@ -21,8 +21,3 @@ Output: ["()"]
 ## Constraints
 
 - `1 <= n <= 8`
-
-## Topics
-- String
-- Dynamic Programming
-- Backtracking
