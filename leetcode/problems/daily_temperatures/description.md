@@ -29,7 +29,9 @@ Output: [1,1,0]
 - `1 <= temperatures.length <= 10^5`
 - `30 <= temperatures[i] <= 100`
 
-## Topics
-- Array
-- Stack
-- Monotonic Stack
+
+## Key Questions?
+
+where's the next bigger element?
+
+[10 7 4 8 5 11]

@@ -41,3 +41,10 @@ fn test_fluctuating_temperatures() {
     let expected = vec![2, 1, 4, 2, 1, 1, 0, 0];
     assert_eq!(Solution::daily_temperatures(temperatures), expected);
 }
+
+#[test]
+fn test_example_4() {
+    let temperatures = vec![77,77,77,77,77,41,77,41,41,77];
+    let expected = vec![0,0,0,0,0,1,0,2,1,0];
+    assert_eq!(Solution::daily_temperatures(temperatures), expected);
+}
