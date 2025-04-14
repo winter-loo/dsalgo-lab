@@ -51,8 +51,6 @@ Explanation:
 - All the values of `position` are **unique**.
 - `0 < speed[i] <= 10^6`
 
-## Topics
-- Array
-- Stack
-- Sorting
-- Monotonic Stack
+## Difficulties
+
+* Hard to model the problem.
