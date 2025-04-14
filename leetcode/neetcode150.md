@@ -27,8 +27,8 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 25. [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
 - [x] 26. ~~[Car Fleet](https://leetcode.com/problems/car-fleet/)~~
 - [x] 27. [Largest Rectangle In Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
-- [ ] 28. [Binary Search](https://leetcode.com/problems/binary-search/)
-- [ ] 29. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)
+- [x] 28. [Binary Search](https://leetcode.com/problems/binary-search/)
+- [x] 29. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)
 - [ ] 30. ~~[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)~~
 - [ ] 31. [Find Minimum In Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
 - [ ] 32. [Search In Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
