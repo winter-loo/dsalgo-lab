@@ -3,9 +3,8 @@
 ## Intuition
 The key insight for this problem is to leverage the properties of a rotated sorted array. In a rotated sorted array, there exists a "pivot" point where the array is rotated. The minimum element is at this pivot point. We can use binary search to efficiently find this pivot point.
 
-## Multiple Approaches
+## Approaches
 
-### Approach 1: Modified Binary Search
 1. Initialize two pointers, `left` and `right`, to the first and last indices of the array.
 2. While `left < right`:
    - Calculate the middle index `mid = left + (right - left) / 2`.
@@ -16,22 +15,6 @@ The key insight for this problem is to leverage the properties of a rotated sort
 **Time Complexity**: O(log n) - Binary search reduces the search space by half in each iteration.
 **Space Complexity**: O(1) - Constant extra space.
 
-### Approach 2: Find the Pivot Point
-1. Initialize two pointers, `left` and `right`, to the first and last indices of the array.
-2. While `left < right`:
-   - Calculate the middle index `mid = left + (right - left) / 2`.
-   - If `nums[mid] > nums[right]`, then the pivot is in the right half, so set `left = mid + 1`.
-   - Otherwise, the pivot is in the left half (including `mid`), so set `right = mid`.
-3. Return `nums[left]`.
-
-**Time Complexity**: O(log n) - Binary search reduces the search space by half in each iteration.
-**Space Complexity**: O(1) - Constant extra space.
-
-### Approach 3: Linear Search (Suboptimal)
-1. Iterate through the array and find the minimum element.
-
-**Time Complexity**: O(n) - We need to check each element in the worst case.
-**Space Complexity**: O(1) - Constant extra space.
 
 ## Implementation Notes
 - The key to solving this problem efficiently is to recognize that we can use binary search even though the array is not completely sorted.
@@ -45,3 +28,29 @@ The key insight for this problem is to leverage the properties of a rotated sort
 ## Topics
 - Array
 - Binary Search
+
+## My Key Takeways
+
+In your mind, imagine two line segments:
+
+```
+|
+|    /
+|   /  
+|  /   
+| /    
+|        /
+|       /
+|_______________
+```
+or
+```
+|
+|      /
+|     /  
+|    /   
+|   /    
+|  /
+| /
+|________________
+```
