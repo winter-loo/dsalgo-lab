@@ -30,22 +30,6 @@ The key insight for this problem is to adapt the binary search algorithm to work
 **Time Complexity**: O(log n) - Two binary searches, each taking O(log n) time.
 **Space Complexity**: O(1) - Constant extra space.
 
-### Approach 3: One-Pass Binary Search with Different Comparison
-1. Initialize two pointers, `left` and `right`, to the first and last indices of the array.
-2. While `left <= right`:
-   - Calculate the middle index `mid = left + (right - left) / 2`.
-   - If `nums[mid] == target`, return `mid`.
-   - If `nums[mid] >= nums[left]`:
-     - If `target >= nums[left]` and `target < nums[mid]`, set `right = mid - 1`.
-     - Otherwise, set `left = mid + 1`.
-   - If `nums[mid] < nums[left]`:
-     - If `target > nums[mid]` and `target <= nums[right]`, set `left = mid + 1`.
-     - Otherwise, set `right = mid - 1`.
-3. If the loop terminates without finding the target, return `-1`.
-
-**Time Complexity**: O(log n) - Binary search reduces the search space by half in each iteration.
-**Space Complexity**: O(1) - Constant extra space.
-
 ## Implementation Notes
 - The key to solving this problem efficiently is to recognize which half of the array is sorted and then check if the target lies within that sorted half.
 - Be careful with the boundary conditions when checking if the target lies within a range.

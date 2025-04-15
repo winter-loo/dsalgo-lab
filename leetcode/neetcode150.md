@@ -30,9 +30,9 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 28. [Binary Search](https://leetcode.com/problems/binary-search/)
 - [x] 29. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)
 - [ ] 30. ~~[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)~~
-- [ ] 31. [Find Minimum In Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
-- [ ] 32. [Search In Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
-- [ ] 33. [Time Based Key Value Store](https://leetcode.com/problems/time-based-key-value-store/)
+- [x] 31. [Find Minimum In Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+- [x] 32. [Search In Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+- [x] 33. [Time Based Key Value Store](https://leetcode.com/problems/time-based-key-value-store/)
 - [ ] 34. ~~[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)~~
 - [x] 35. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 - [ ] 36. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
