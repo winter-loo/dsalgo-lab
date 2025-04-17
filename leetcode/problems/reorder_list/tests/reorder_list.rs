@@ -30,6 +30,7 @@ fn list_to_vec(list: Option<Box<ListNode>>) -> Vec<i32> {
 fn test_example_1() {
     let mut head = vec_to_list(vec![1, 2, 3, 4]);
     Solution::reorder_list(&mut head);
+    println!("head={head:?}");
     assert_eq!(list_to_vec(head), vec![1, 4, 2, 3]);
 }
 
