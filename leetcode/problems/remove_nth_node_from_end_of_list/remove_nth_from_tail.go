@@ -27,7 +27,8 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
     return nil
   }
 
-  for i := 0; i < n; i++ {
+  i := 0
+  for ; i < n; i++ {
     if p1.Next != nil {
       p1 = p1.Next
     } else {
@@ -35,34 +36,51 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
     }
   }
 
-  fmt.Println("p1: ", p1)
+  if i < n {
+    if i + 1 == n {
+      return head.Next
+    }
+    return head
+  }
+
+  // fmt.Println("p1: ", p1, i)
 
   p2 := head
   for p1.Next != nil {
     p1 = p1.Next
     p2 = p2.Next
   }
-  fmt.Println("p2: ", p2)
+  // fmt.Println("p2: ", p2)
 
-  fmt.Printf("p2: %p, head: %p\n", p2, head)
-  if n == 1 && p2 == head {
-    return p2.Next
-  }
   p2.Next = p2.Next.Next
 
   return head
 }
 
-func main() {
-  head := ListNode{Val: 1}
-  node1 := ListNode{Val: 2}
+func createLinkedList(values []int) *ListNode {
+	if len(values) == 0 {
+		return nil
+	}
+	
+	head := &ListNode{Val: values[0]}
+	current := head
+	
+	for i := 1; i < len(values); i++ {
+		current.Next = &ListNode{Val: values[i]}
+		current = current.Next
+	}
+	
+	return head
+}
 
-  head.Next = &node1
+
+func main() {
+  head := createLinkedList([]int{1, 2, 3, 4, 5})
 
   fmt.Println("original:")
-  fmt.Println(&head)
+  fmt.Println(head)
 
-  var new_head = removeNthFromEnd(&head, 1)
+  var new_head = removeNthFromEnd(head, 2)
 
   fmt.Println("removed")
   fmt.Println(new_head)

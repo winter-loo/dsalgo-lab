@@ -4,12 +4,12 @@ use remove_nth_node_from_end_of_list::{ListNode, Solution};
 fn vec_to_list(vec: Vec<i32>) -> Option<Box<ListNode>> {
     let mut dummy_head = Box::new(ListNode::new(0));
     let mut current = &mut dummy_head;
-    
+
     for &val in vec.iter() {
         current.next = Some(Box::new(ListNode::new(val)));
         current = current.next.as_mut().unwrap();
     }
-    
+
     dummy_head.next
 }
 
@@ -17,12 +17,12 @@ fn vec_to_list(vec: Vec<i32>) -> Option<Box<ListNode>> {
 fn list_to_vec(list: Option<Box<ListNode>>) -> Vec<i32> {
     let mut result = Vec::new();
     let mut current = list;
-    
+
     while let Some(node) = current {
         result.push(node.val);
         current = node.next;
     }
-    
+
     result
 }
 
@@ -45,6 +45,13 @@ fn test_example_3() {
     let head = vec_to_list(vec![1, 2]);
     let result = Solution::remove_nth_from_end(head, 1);
     assert_eq!(list_to_vec(result), vec![1]);
+}
+
+#[test]
+fn test_example_4() {
+    let head = vec_to_list(vec![1, 2]);
+    let result = Solution::remove_nth_from_end(head, 2);
+    assert_eq!(list_to_vec(result), vec![2]);
 }
 
 #[test]
