@@ -35,12 +35,12 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 33. [Time Based Key Value Store](https://leetcode.com/problems/time-based-key-value-store/)
 - [ ] 34. ~~[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)~~
 - [x] 35. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
-- [ ] 36. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
-- [ ] 37. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
-- [ ] 38. [Reorder List](https://leetcode.com/problems/reorder-list/)
-- [ ] 39. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+- [x] 36. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+- [x] 37. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+- [x] 38. [Reorder List](https://leetcode.com/problems/reorder-list/)
+- [x] 39. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 - [ ] 40. [Copy List With Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
-- [ ] 41. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+- [x] 41. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 - [ ] 42. ~~[Find The Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)~~
 - [ ] 43. [LRU Cache](https://leetcode.com/problems/lru-cache/)
 - [ ] 44. [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
