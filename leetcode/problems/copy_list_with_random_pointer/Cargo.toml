@@ -1,0 +1,14 @@
+[package]
+name = "copy_list_with_random_pointer"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "copy_list_with_random_pointer"
+path = "src/lib.rs"
+
+[dependencies]
+
+[[test]]
+name = "copy_list_with_random_pointer_tests"
+path = "tests/copy_list_with_random_pointer.rs"
