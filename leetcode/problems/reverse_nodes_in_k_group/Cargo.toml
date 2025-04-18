@@ -1,0 +1,14 @@
+[package]
+name = "reverse_nodes_in_k_group"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[lib]
+name = "reverse_nodes_in_k_group"
+path = "src/lib.rs"
+
+[[test]]
+name = "reverse_nodes_in_k_group_tests"
+path = "tests/reverse_nodes_in_k_group.rs"

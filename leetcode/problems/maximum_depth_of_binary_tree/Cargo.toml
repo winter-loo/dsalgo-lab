@@ -1,0 +1,14 @@
+[package]
+name = "maximum_depth_of_binary_tree"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[lib]
+name = "maximum_depth_of_binary_tree"
+path = "src/lib.rs"
+
+[[test]]
+name = "maximum_depth_of_binary_tree_tests"
+path = "tests/maximum_depth_of_binary_tree.rs"

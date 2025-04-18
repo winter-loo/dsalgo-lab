@@ -1,0 +1,14 @@
+[package]
+name = "merge_k_sorted_lists"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "merge_k_sorted_lists"
+path = "src/lib.rs"
+
+[dependencies]
+
+[[test]]
+name = "merge_k_sorted_lists_tests"
+path = "tests/merge_k_sorted_lists.rs"

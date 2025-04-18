@@ -1,0 +1,14 @@
+[package]
+name = "invert_binary_tree"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[lib]
+name = "invert_binary_tree"
+path = "src/lib.rs"
+
+[[test]]
+name = "invert_binary_tree_tests"
+path = "tests/invert_binary_tree.rs"
