@@ -9,13 +9,13 @@ mod tests {
         let mut lru_cache = LRUCache::new(2);
         lru_cache.put(1, 1);
         lru_cache.put(2, 2);
-        assert_eq!(lru_cache.get(1), 1);    // returns 1
-        lru_cache.put(3, 3);                // evicts key 2
-        assert_eq!(lru_cache.get(2), -1);   // returns -1 (not found)
-        lru_cache.put(4, 4);                // evicts key 1
-        assert_eq!(lru_cache.get(1), -1);   // returns -1 (not found)
-        assert_eq!(lru_cache.get(3), 3);    // returns 3
-        assert_eq!(lru_cache.get(4), 4);    // returns 4
+        assert_eq!(lru_cache.get(1), 1); // returns 1
+        lru_cache.put(3, 3); // evicts key 2
+        assert_eq!(lru_cache.get(2), -1); // returns -1 (not found)
+        lru_cache.put(4, 4); // evicts key 1
+        assert_eq!(lru_cache.get(1), -1); // returns -1 (not found)
+        assert_eq!(lru_cache.get(3), 3); // returns 3
+        assert_eq!(lru_cache.get(4), 4); // returns 4
     }
 
     #[test]
