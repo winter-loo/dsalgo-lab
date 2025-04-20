@@ -41,7 +41,7 @@ fn vec_to_tree(vec: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
                 i += 1;
             }
         } else {
-             // Should not happen if vec representation is correct, but handles potential queue empty issue
+            // Should not happen if vec representation is correct, but handles potential queue empty issue
             break;
         }
     }
@@ -94,15 +94,30 @@ fn tree_to_vec(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     result
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*; // Import helpers
 
     #[test]
     fn test_example_1() {
-        let input_vec = vec![Some(4), Some(2), Some(7), Some(1), Some(3), Some(6), Some(9)];
-        let expected_vec = vec![Some(4), Some(7), Some(2), Some(9), Some(6), Some(3), Some(1)];
+        let input_vec = vec![
+            Some(4),
+            Some(2),
+            Some(7),
+            Some(1),
+            Some(3),
+            Some(6),
+            Some(9),
+        ];
+        let expected_vec = vec![
+            Some(4),
+            Some(7),
+            Some(2),
+            Some(9),
+            Some(6),
+            Some(3),
+            Some(1),
+        ];
         let root = vec_to_tree(input_vec);
         let inverted_root = Solution::invert_tree(root);
         assert_eq!(tree_to_vec(inverted_root), expected_vec);
@@ -135,10 +150,10 @@ mod tests {
         assert_eq!(tree_to_vec(inverted_root), expected_vec);
     }
 
-     #[test]
+    #[test]
     fn test_only_left_children() {
         // Represents [1, 2, null, 3]
-        let input_vec = vec![Some(1), Some(2), None, Some(3)]; 
+        let input_vec = vec![Some(1), Some(2), None, Some(3)];
         // Expected: [1, null, 2, null, 3]
         let expected_vec = vec![Some(1), None, Some(2), None, Some(3)];
         let root = vec_to_tree(input_vec);
@@ -146,12 +161,12 @@ mod tests {
         assert_eq!(tree_to_vec(inverted_root), expected_vec);
     }
 
-     #[test]
+    #[test]
     fn test_only_right_children() {
         // Represents [1, null, 2, null, 3]
         let input_vec = vec![Some(1), None, Some(2), None, Some(3)];
         // Expected: [1, 3, null, 2]
-        let expected_vec = vec![Some(1), Some(3), None, Some(2)]; 
+        let expected_vec = vec![Some(1), Some(2), None, Some(3)];
         let root = vec_to_tree(input_vec);
         let inverted_root = Solution::invert_tree(root);
         assert_eq!(tree_to_vec(inverted_root), expected_vec);
