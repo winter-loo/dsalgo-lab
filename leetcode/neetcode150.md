@@ -55,7 +55,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 53. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 - [x] 54. [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
 - [x] 55. [Count Good Nodes In Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)
-- [ ] 56. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
+- [x] 56. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
 - [ ] 57. [Kth Smallest Element In a Bst](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 - [ ] 58. [Construct Binary Tree From Preorder And Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 - [ ] 59. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
