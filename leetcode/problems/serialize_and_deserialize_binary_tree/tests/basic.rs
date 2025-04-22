@@ -53,6 +53,7 @@ fn test_example_1() {
     let root = build_tree(&[Some(1), Some(2), Some(3), None, None, Some(4), Some(5)]);
     let codec = Codec::new();
     let serialized = codec.serialize(root.clone());
+    println!("serialized: {serialized}");
     let deserialized = codec.deserialize(serialized);
     assert!(is_same_tree(&root, &deserialized));
 }
@@ -63,6 +64,7 @@ fn test_example_2() {
     let root = build_tree(&[]);
     let codec = Codec::new();
     let serialized = codec.serialize(root.clone());
+    println!("serialized: '{serialized:?}'");
     let deserialized = codec.deserialize(serialized);
     assert!(is_same_tree(&root, &deserialized));
 }
@@ -79,7 +81,10 @@ fn test_single_node() {
 
 #[test]
 fn test_complex_tree() {
-    // Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1]
+    // Input: root = [5,
+    //                4,            8,
+    //                11, null,     13,    4,
+    //                7,2,null,null,null,1]
     let root = build_tree(&[Some(5), Some(4), Some(8), Some(11), None, Some(13), Some(4), Some(7), Some(2), None, None, None, Some(1)]);
     let codec = Codec::new();
     let serialized = codec.serialize(root.clone());
