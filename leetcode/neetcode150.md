@@ -135,18 +135,18 @@ Problems relying heavily on math insights are marked with deleting line.
 - [ ] 133. [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)
 - [ ] 134. [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
 - [ ] 135. [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/)
-- [ ] 136. [Rotate Image](https://leetcode.com/problems/rotate-image/)
-- [ ] 137. [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
-- [ ] 138. [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
+- [ ] 136. ~~[Rotate Image](https://leetcode.com/problems/rotate-image/)~~
+- [ ] 137. ~~[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)~~
+- [ ] 138. ~~[Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)~~
 - [ ] 139. ~~[Happy Number](https://leetcode.com/problems/happy-number/)~~
-- [ ] 140. [Plus One](https://leetcode.com/problems/plus-one/)
-- [ ] 141. [Pow(x, n)](https://leetcode.com/problems/powx-n/)
-- [ ] 142. [Multiply Strings](https://leetcode.com/problems/multiply-strings/)
-- [ ] 143. [Detect Squares](https://leetcode.com/problems/detect-squares/)
-- [ ] 144. ~~[Single Number](https://leetcode.com/problems/single-number/)~~
-- [ ] 145. ~~[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)~~
-- [ ] 146. ~~[Counting Bits](https://leetcode.com/problems/counting-bits/)~~
-- [ ] 147. ~~[Reverse Bits](https://leetcode.com/problems/reverse-bits/)~~
-- [ ] 148. ~~[Missing Number](https://leetcode.com/problems/missing-number/)~~
-- [ ] 149. ~~[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)~~
-- [ ] 150. ~~[Reverse Integer](https://leetcode.com/problems/reverse-integer/)~~
+- [ ] 140. ~~[Plus One](https://leetcode.com/problems/plus-one/)~~
+- [ ] 141. ~~[Pow(x, n)](https://leetcode.com/problems/powx-n/)~~
+- [ ] 142. ~~[Multiply Strings](https://leetcode.com/problems/multiply-strings/)~~
+- [ ] 143. ~~[Detect Squares](https://leetcode.com/problems/detect-squares/)~~
+- [ ] 144. [Single Number](https://leetcode.com/problems/single-number/)
+- [ ] 145. [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)
+- [ ] 146. [Counting Bits](https://leetcode.com/problems/counting-bits/)
+- [ ] 147. [Reverse Bits](https://leetcode.com/problems/reverse-bits/)
+- [ ] 148. [Missing Number](https://leetcode.com/problems/missing-number/)
+- [ ] 149. [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)
+- [ ] 150. [Reverse Integer](https://leetcode.com/problems/reverse-integer/)
