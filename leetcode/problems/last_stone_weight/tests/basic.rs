@@ -29,7 +29,9 @@ fn test_descending_weights() {
     // Input: stones = [5,4,3,2,1]
     // Output: 3
     let stones = vec![5, 4, 3, 2, 1];
-    assert_eq!(Solution::last_stone_weight(stones), 3);
+    // 5, 4 => 1 => [3, 2, 1, 1]
+    // 3, 2 => 1 => [1, 1, 1]
+    assert_eq!(Solution::last_stone_weight(stones), 1);
 }
 
 #[test]
