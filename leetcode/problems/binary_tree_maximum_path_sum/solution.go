@@ -11,6 +11,9 @@ func maxPathSum(root *TreeNode) int {
 
 // dfs returns a maximum path sum of between left and right path and
 // the path sum of root.val + left path sum + right path sum
+//
+// Key base idea: think from small to big. If you can solve the 
+// small problem, you can easily solve the big problem
 func dfs(root *TreeNode) (int, int) {
     if root == nil {
         panic("root should not be null")
@@ -18,14 +21,24 @@ func dfs(root *TreeNode) (int, int) {
     if root.Left == nil && root.Right == nil {
         return root.Val, root.Val
     }
-    left_sum, right_sum, m1, m2 := 0, 0, 0, 0
+    // -1000 is the minimum input value per the problem description
+    m1, m2 := -1001, -1001
+    s := 0
     if root.Left != nil {
-        left_sum, m1 = dfs(root.Left)
+        left_sum, m := dfs(root.Left)
+        m1 = max(m1, left_sum)
+        m2 = max(m2, m)
+        s += left_sum
     }
     if root.Right != nil {
-        right_sum, m2 = dfs(root.Right)
+        right_sum, m := dfs(root.Right)
+        m1 = max(m1, right_sum)
+        m2 = max(m2, m)
+        s += right_sum
     }
-    return root.Val + max(left_sum, right_sum), max(m1, m2, root.Val + left_sum + right_sum)
+    m1 = max(root.Val, root.Val + m1)
+    m2 = max(m1, m2, root.Val + s)
+    return m1, m2
 }
 
 func max(nums ...int) int {
