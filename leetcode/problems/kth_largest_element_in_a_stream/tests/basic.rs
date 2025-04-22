@@ -28,9 +28,9 @@ fn test_empty_initial_array() {
 fn test_k_equals_array_length() {
     // Test when k equals the length of the initial array
     let mut kth_largest = KthLargest::new(3, vec![4, 5, 8]);
-    assert_eq!(kth_largest.add(3), 3);
-    assert_eq!(kth_largest.add(5), 4);
-    assert_eq!(kth_largest.add(10), 5);
+    assert_eq!(kth_largest.add(3), 4); // 3,4,5,8
+    assert_eq!(kth_largest.add(5), 5); // 3,4,5,5,8
+    assert_eq!(kth_largest.add(10), 5); // 3,4,5,5,8,10
 }
 
 #[test]
@@ -41,4 +41,14 @@ fn test_negative_numbers() {
     assert_eq!(kth_largest.add(-2), -2);
     assert_eq!(kth_largest.add(-6), -2);
     assert_eq!(kth_largest.add(0), -1);
+}
+
+#[test]
+fn test_example_2() {
+    // Test with negative numbers
+    let mut kth_largest = KthLargest::new(4, vec![7,7,7,7,8,3]); // 3,7,7,7,7,8
+    assert_eq!(kth_largest.add(2), 7); // 2,3,7,7,7,7,8 -> 7
+    assert_eq!(kth_largest.add(10), 7); // 2,3,7,7,7,7,8,10 -> 7
+    assert_eq!(kth_largest.add(9), 7); // 2,3,7,7,7,7,8,9,10 -> 7
+    assert_eq!(kth_largest.add(9), 8); // 2,3,7,7,7,7,8,9,9,10 -> 8
 }
