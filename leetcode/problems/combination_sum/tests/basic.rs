@@ -3,6 +3,7 @@ use std::collections::HashSet;
 
 // Helper function to compare results regardless of order
 fn compare_results(result: Vec<Vec<i32>>, expected: Vec<Vec<i32>>) -> bool {
+    assert_eq!(result.len(), expected.len());
     let result_set: HashSet<Vec<i32>> = result
         .into_iter()
         .map(|mut v| {
@@ -10,7 +11,7 @@ fn compare_results(result: Vec<Vec<i32>>, expected: Vec<Vec<i32>>) -> bool {
             v
         })
         .collect();
-    
+
     let expected_set: HashSet<Vec<i32>> = expected
         .into_iter()
         .map(|mut v| {
@@ -18,7 +19,7 @@ fn compare_results(result: Vec<Vec<i32>>, expected: Vec<Vec<i32>>) -> bool {
             v
         })
         .collect();
-    
+
     result_set == expected_set
 }
 
@@ -30,7 +31,7 @@ fn test_example_1() {
     let target = 7;
     let result = Solution::combination_sum(candidates, target);
     let expected = vec![vec![2, 2, 3], vec![7]];
-    
+
     assert!(compare_results(result, expected));
 }
 
@@ -42,7 +43,7 @@ fn test_example_2() {
     let target = 8;
     let result = Solution::combination_sum(candidates, target);
     let expected = vec![vec![2, 2, 2, 2], vec![2, 3, 3], vec![3, 5]];
-    
+
     assert!(compare_results(result, expected));
 }
 
@@ -53,7 +54,7 @@ fn test_example_3() {
     let candidates = vec![2];
     let target = 1;
     let result = Solution::combination_sum(candidates, target);
-    
+
     assert!(result.is_empty());
 }
 
@@ -65,20 +66,6 @@ fn test_single_candidate_exact_match() {
     let target = 5;
     let result = Solution::combination_sum(candidates, target);
     let expected = vec![vec![5]];
-    
-    assert!(compare_results(result, expected));
-}
 
-#[test]
-fn test_multiple_same_candidates() {
-    // Input: candidates = [1,1], target = 2
-    // Output: [[1,1]]
-    // Note: The problem states all elements of candidates are distinct,
-    // but this test is included for completeness
-    let candidates = vec![1, 1];
-    let target = 2;
-    let result = Solution::combination_sum(candidates, target);
-    let expected = vec![vec![1, 1]];
-    
     assert!(compare_results(result, expected));
 }
