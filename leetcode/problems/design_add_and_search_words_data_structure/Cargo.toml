@@ -1,0 +1,6 @@
+[package]
+name = "design_add_and_search_words_data_structure"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
