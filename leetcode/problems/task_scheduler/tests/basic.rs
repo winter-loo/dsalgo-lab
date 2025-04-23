@@ -44,3 +44,32 @@ fn test_all_different_tasks() {
     let n = 3;
     assert_eq!(Solution::least_interval(tasks, n), 5);
 }
+
+#[test]
+fn test_example_4() {
+    let tasks = vec!['A', 'A', 'A', 'C', 'D', 'E', 'E'];
+    // A,_,A,_,A
+    // A,C,A,D,A,E,_,E => 8
+    // A,E,A,E,A,C,D => 7
+    let n = 1;
+    assert_eq!(Solution::least_interval(tasks, n), 7);
+}
+
+#[test]
+fn test_example_5() {
+    let tasks = vec!['A', 'A', 'A', 'C', 'C', 'D', 'D', 'E', 'E'];
+    // A,_,A,_,A
+    // A,C,A,C,A,D,E,D,E
+    let n = 1;
+    assert_eq!(Solution::least_interval(tasks, n), 9);
+}
+
+#[test]
+fn test_example_6() {
+    let tasks = vec!['A', 'A', 'A', 'C', 'C', 'D', 'D', 'E', 'E'];
+    // A,_,_,A,_,_,A
+    // A,C,D,A,C,D,A
+    // E,_,E
+    let n = 2;
+    assert_eq!(Solution::least_interval(tasks, n), 10);
+}
