@@ -64,8 +64,8 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 62. [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)
 - [x] 63. [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)
 - [x] 64. [Kth Largest Element In An Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
-- [ ] 65. [Task Scheduler](https://leetcode.com/problems/task-scheduler/)
-- [ ] 66. [Design Twitter](https://leetcode.com/problems/design-twitter/)
+- [x] 65. ~~[Task Scheduler](https://leetcode.com/problems/task-scheduler/)~~
+- [x] 66. [Design Twitter](https://leetcode.com/problems/design-twitter/)
 - [ ] 67. [Find Median From Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
 - [ ] 68. [Subsets](https://leetcode.com/problems/subsets/)
 - [ ] 69. [Combination Sum](https://leetcode.com/problems/combination-sum/)
