@@ -22,6 +22,7 @@ impl Solution {
             }
             for i in index..candidates.len() {
                 let mut count = counts[i].min((target / candidates[i]) as usize).max(1);
+                // trick: start with the largest count down to 1
                 path.extend(std::iter::repeat_n(candidates[i], count));
                 loop {
                     backtrack(i + 1, candidates, counts, target - (count as i32 * candidates[i]), path, results);

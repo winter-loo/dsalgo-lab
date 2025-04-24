@@ -3,6 +3,7 @@ use std::collections::HashSet;
 
 // Helper function to compare results regardless of order
 fn compare_results(result: Vec<Vec<i32>>, expected: Vec<Vec<i32>>) -> bool {
+    assert_eq!(result.len(), expected.len());
     let result_set: HashSet<Vec<i32>> = result
         .into_iter()
         .map(|mut v| {
@@ -37,6 +38,8 @@ fn test_example_1() {
         vec![1, 2, 2]
     ];
     
+    println!("result={result:?}");
+    println!("expected={expected:?}");
     assert!(compare_results(result, expected));
 }
 
