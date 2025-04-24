@@ -3,6 +3,7 @@ use std::collections::HashSet;
 
 // Helper function to compare results regardless of order
 fn compare_results(result: Vec<Vec<i32>>, expected: Vec<Vec<i32>>) -> bool {
+    assert_eq!(result.len(), expected.len());
     let result_set: HashSet<Vec<i32>> = result
         .into_iter()
         .map(|mut v| {
@@ -35,6 +36,8 @@ fn test_example_1() {
         vec![1, 7],
         vec![2, 6]
     ];
+    println!("result:{result:?}");
+    println!("expected:{expected:?}");
     
     assert!(compare_results(result, expected));
 }
@@ -87,4 +90,14 @@ fn test_many_duplicates() {
     let expected = vec![vec![1, 1, 1]];
     
     assert!(compare_results(result, expected));
+}
+
+#[test]
+fn test_example_3() {
+    let candidates = vec![1; 100];
+    let target = 30;
+    let result = Solution::combination_sum2_iterate_all(candidates, target);
+    println!("result:{result:?}");
+    
+    // assert!(compare_results(result, expected));
 }
