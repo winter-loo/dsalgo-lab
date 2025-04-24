@@ -4,6 +4,7 @@ use task_scheduler::Solution;
 fn test_example_1() {
     // Input: tasks = ["A","A","A","B","B","B"], n = 2
     // Output: 8
+    // A,_,_,A,_,_,A
     let tasks = vec!['A', 'A', 'A', 'B', 'B', 'B'];
     let n = 2;
     assert_eq!(Solution::least_interval(tasks, n), 8);
