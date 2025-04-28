@@ -179,8 +179,84 @@ impl MoveState {
         }
     }
 }
+
 impl Solution {
     pub fn exist(board: Vec<Vec<char>>, word: String) -> bool {
+      Solution::exist_chatgpt(board, word)
+      // Solution::exist_my(board, word)
+      // Solution::exist_initial_attempt(board, word)
+    }
+
+    pub fn exist_chatgpt(board: Vec<Vec<char>>, word: String) -> bool {
+        // Helper DFS function with more efficient parameter types
+        fn dfs(
+            board: &[Vec<char>],
+            row: usize,
+            col: usize,
+            index: usize,
+            word: &[u8],
+            visited: &mut [Vec<bool>],
+        ) -> bool {
+            // If we've matched all characters in the word
+            if index == word.len() {
+                return true;
+            }
+
+            // Check bounds and character match
+            if row >= board.len()
+                || col >= board[0].len()
+                || visited[row][col]
+                || board[row][col] as u8 != word[index]
+            {
+                return false;
+            }
+
+            // Mark as visited
+            visited[row][col] = true;
+
+            // Check if this is the last character we need to match
+            if index == word.len() - 1 {
+                return true;
+            }
+
+            // Try all four directions
+            let directions = [(0, 1), (1, 0), (0, usize::MAX), (usize::MAX, 0)]; // down, right, up, left
+
+            for &(dr, dc) in &directions {
+                let (new_row, new_col) = match (dr, dc) {
+                    (0, usize::MAX) => {
+                        // up
+                        if row == 0 {
+                            continue;
+                        }
+                        (row - 1, col)
+                    }
+                    (usize::MAX, 0) => {
+                        // left
+                        if col == 0 {
+                            continue;
+                        }
+                        (row, col - 1)
+                    }
+                    _ => (row + dr, col + dc), // down or right
+                };
+
+                // Skip if out of bounds
+                if new_row >= board.len() || new_col >= board[0].len() {
+                    continue;
+                }
+
+                if dfs(board, new_row, new_col, index + 1, word, visited) {
+                    return true;
+                }
+            }
+
+            // Backtrack
+            visited[row][col] = false;
+
+            false
+        }
+
         if board.is_empty() || board[0].is_empty() {
             return false;
         }
@@ -230,73 +306,133 @@ impl Solution {
 
         false
     }
-}
 
-// Helper DFS function with more efficient parameter types
-fn dfs(
-    board: &[Vec<char>],
-    row: usize,
-    col: usize,
-    index: usize,
-    word: &[u8],
-    visited: &mut [Vec<bool>],
-) -> bool {
-    // If we've matched all characters in the word
-    if index == word.len() {
-        return true;
-    }
+    pub fn exist_my(board: Vec<Vec<char>>, word: String) -> bool {
+        use std::collections::HashSet;
 
-    // Check bounds and character match
-    if row >= board.len()
-        || col >= board[0].len()
-        || visited[row][col]
-        || board[row][col] as u8 != word[index]
-    {
-        return false;
-    }
-
-    // Mark as visited
-    visited[row][col] = true;
-
-    // Check if this is the last character we need to match
-    if index == word.len() - 1 {
-        return true;
-    }
-
-    // Try all four directions
-    let directions = [(0, 1), (1, 0), (0, usize::MAX), (usize::MAX, 0)]; // down, right, up, left
-
-    for &(dr, dc) in &directions {
-        let (new_row, new_col) = match (dr, dc) {
-            (0, usize::MAX) => {
-                // up
-                if row == 0 {
+        fn dfs(board: &Vec<Vec<char>>, word: &[u8], pos: (isize, isize), index: usize, visited: &mut HashSet<(isize, isize)>) -> bool {
+            if pos.0 < 0 || pos.1 < 0 || pos.0 >= board[0].len() as isize || pos.1 >= board.len() as isize {
+                return false;
+            }
+            if word[index] != board[pos.1 as usize][pos.0 as usize] as u8 {
+                return false;
+            }
+            if index == word.len() - 1 {
+                return true;
+            }
+            let directions = [(1, 0), (-1, 0), (0, 1), (0, -1)];
+            for dir in directions {
+                let next_pos = (pos.0 + dir.0, pos.1 + dir.1);
+                if visited.contains(&next_pos) {
                     continue;
                 }
-                (row - 1, col)
-            }
-            (usize::MAX, 0) => {
-                // left
-                if col == 0 {
-                    continue;
+                visited.insert(next_pos);
+                if dfs(board, word, next_pos, index + 1, visited) {
+                    return true;
                 }
-                (row, col - 1)
+                visited.remove(&next_pos);
             }
-            _ => (row + dr, col + dc), // down or right
-        };
+            false
+        }
+        let (width, height) = (board[0].len(), board.len());
 
-        // Skip if out of bounds
-        if new_row >= board.len() || new_col >= board[0].len() {
-            continue;
+        if width == 1 && height == 1 {
+            return word.len() == 1 && board[0][0] as u8 == word.as_bytes()[0];
         }
 
-        if dfs(board, new_row, new_col, index + 1, word, visited) {
-            return true;
+        if width * height < word.len() {
+            return false;
         }
+
+        let mut alphabet = HashSet::new();
+        for y in 0..height {
+            for x in 0..width {
+                alphabet.insert(board[y][x]);
+            }
+        }
+        if word.chars().any(|b| !alphabet.contains(&b)) {
+            return false;
+        }
+
+        for y in 0..height {
+            for x in 0..width {
+                let mut visited = HashSet::new();
+                visited.insert((x as isize, y as isize));
+                if dfs(&board, word.as_bytes(), (x as isize, y as isize), 0, &mut visited) {
+                    return true;
+                }
+                visited.remove(&(x as isize, y as isize));
+            }
+        }
+        false
     }
 
-    // Backtrack
-    visited[row][col] = false;
+    pub fn exist_initial_attempt(board: Vec<Vec<char>>, word: String) -> bool {
+        use std::collections::HashSet;
 
-    false
+        fn dfs(
+            board: &Vec<Vec<char>>,
+            word: &[u8],
+            start_state: MoveState,
+            index: usize,
+            visited: &mut HashSet<(usize, usize)>,
+        ) -> bool {
+            // println!("start_state:{start_state:?}");
+            // println!("index:{index}");
+            if word[index] != board[start_state.pos.point.1][start_state.pos.point.0] as u8 {
+                return false;
+            }
+            if index == word.len() - 1 {
+                return true;
+            }
+
+            let next_states = start_state.next_states();
+            for next in next_states {
+                if visited.contains(&next.pos.point) {
+                    continue;
+                }
+                visited.insert(next.pos.point);
+                if dfs(board, word, next, index + 1, visited) {
+                    return true;
+                }
+                visited.remove(&next.pos.point);
+            }
+            false
+        }
+
+        let (width, height) = (board[0].len(), board.len());
+
+        if width == 1 && height == 1 {
+            return word.len() == 1 && board[0][0] as u8 == word.as_bytes()[0];
+        }
+
+        if width * height < word.len() {
+            return false;
+        }
+
+        let mut alphabet = HashSet::new();
+        for y in 0..height {
+            for x in 0..width {
+                alphabet.insert(board[y][x]);
+            }
+        }
+        if word.chars().any(|b| !alphabet.contains(&b)) {
+            return false;
+        }
+
+        for y in 0..height {
+            for x in 0..width {
+                let states = MoveState::build((x, y), (width, height));
+                for state in states {
+                    let mut visited = HashSet::new();
+                    visited.insert(state.pos.point);
+                    if dfs(&board, word.as_bytes(), state, 0, &mut visited) {
+                        return true;
+                    }
+                    visited.remove(&state.pos.point);
+                }
+            }
+        }
+        false
+    }
 }
