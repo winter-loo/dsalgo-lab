@@ -36,7 +36,7 @@ impl Solution {
         path: &mut Vec<char>,
         result: &mut Vec<String>,
     ) {
-        println!("path={path:?}");
+        // println!("path={path:?}");
         if pos.0 < 0 || pos.1 < 0 {
             return;
         }
@@ -48,21 +48,24 @@ impl Solution {
         if board[row][col] == 'V' {
             return;
         }
+
         // invalid path?
         let Some(next_node) = node.children.get_mut(&board[row][col]) else {
             return;
         };
 
-        if node.is_end_of_word {
-            let word: String = path.iter().collect();
-            node.is_end_of_word = false;
-            result.push(word);
-        }
-
         // mark currrent cell visited
+        // println!("mark visited: {row}:{col}");
         let chr = board[row][col];
         board[row][col] = 'V';
         path.push(chr);
+
+        // println!("end of word: {}", next_node.is_end_of_word);
+        if next_node.is_end_of_word {
+            let word: String = path.iter().collect();
+            next_node.is_end_of_word = false; // de-duplicate
+            result.push(word);
+        }
 
         let delta_moves = [(0isize, 1isize), (1, 0), (0, -1), (-1, 0)];
         for (dr, dc) in delta_moves {
@@ -75,10 +78,12 @@ impl Solution {
             );
         }
 
+        // println!("unmark visited: {row}:{col}");
         board[row][col] = chr;
         path.pop();
     }
 
+    // Time Limit Exceeded
     pub fn find_words_one_by_one(board: Vec<Vec<char>>, words: Vec<String>) -> Vec<String> {
         let mut result = vec![];
         for word in words {
@@ -176,10 +181,6 @@ pub struct Trie {
     root: TrieNode,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl Trie {
     pub fn new() -> Self {
         Trie {

@@ -3,6 +3,7 @@ use word_search_ii::Solution;
 
 // Helper function to compare results regardless of order
 fn compare_results(result: Vec<String>, expected: Vec<String>) -> bool {
+    assert!(result.len() == expected.len());
     let result_set: HashSet<String> = result.into_iter().collect();
     let expected_set: HashSet<String> = expected.into_iter().collect();
 
@@ -104,6 +105,7 @@ fn test_example_3() {
     ];
 
     let result = Solution::find_words(board, words);
+    println!("result={result:?}");
     let expected = vec![
         "abcdefg".to_string(),
         "befa".to_string(),
