@@ -3,6 +3,92 @@ use std::collections::HashMap;
 pub struct Solution;
 
 impl Solution {
+    pub fn find_words(mut board: Vec<Vec<char>>, words: Vec<String>) -> Vec<String> {
+        assert!(!board.is_empty() && !board[0].is_empty());
+
+        let mut word_trie = Trie::new();
+        for word in words {
+            word_trie.insert(word);
+        }
+        let (rows, cols) = (board.len(), board[0].len());
+        let mut path = vec![];
+        let mut result = vec![];
+
+        for row in 0..rows {
+            for col in 0..cols {
+                Solution::dfs(
+                    &mut board,
+                    (row as isize, col as isize),
+                    &mut word_trie.root,
+                    &mut path,
+                    &mut result,
+                );
+            }
+        }
+
+        result
+    }
+
+    fn dfs(
+        board: &mut [Vec<char>],
+        pos: (isize, isize),
+        node: &mut TrieNode,
+        path: &mut Vec<char>,
+        result: &mut Vec<String>,
+    ) {
+        println!("path={path:?}");
+        if pos.0 < 0 || pos.1 < 0 {
+            return;
+        }
+        let (row, col) = (pos.0 as usize, pos.1 as usize);
+        if row >= board.len() || col >= board[0].len() {
+            return;
+        }
+        // already visited?
+        if board[row][col] == 'V' {
+            return;
+        }
+        // invalid path?
+        let Some(next_node) = node.children.get_mut(&board[row][col]) else {
+            return;
+        };
+
+        if node.is_end_of_word {
+            let word: String = path.iter().collect();
+            node.is_end_of_word = false;
+            result.push(word);
+        }
+
+        // mark currrent cell visited
+        let chr = board[row][col];
+        board[row][col] = 'V';
+        path.push(chr);
+
+        let delta_moves = [(0isize, 1isize), (1, 0), (0, -1), (-1, 0)];
+        for (dr, dc) in delta_moves {
+            Solution::dfs(
+                board,
+                (row as isize + dr, col as isize + dc),
+                next_node,
+                path,
+                result,
+            );
+        }
+
+        board[row][col] = chr;
+        path.pop();
+    }
+
+    pub fn find_words_one_by_one(board: Vec<Vec<char>>, words: Vec<String>) -> Vec<String> {
+        let mut result = vec![];
+        for word in words {
+            if Solution::exist(&board, word.clone()) {
+                result.push(word);
+            }
+        }
+        result
+    }
+
     pub fn exist(board: &Vec<Vec<char>>, word: String) -> bool {
         use std::collections::HashSet;
 
@@ -78,85 +164,9 @@ impl Solution {
         }
         false
     }
-
-    pub fn find_words(board: Vec<Vec<char>>, words: Vec<String>) -> Vec<String> {
-        assert!(!board.is_empty() && !board[0].is_empty());
-
-        let mut word_trie = Trie::new();
-        for word in words {
-            word_trie.insert(word);
-        }
-        let (rows, cols) = (board.len(), board[0].len());
-        let mut visited: Vec<_> = (0..rows).map(|_| vec![false; cols]).collect();
-        let mut path = vec![];
-        let mut result = vec![];
-
-        for y in 0..rows {
-            for x in 0..cols {
-                Solution::dfs(&board, (x, y), &mut word_trie.root, &mut visited, &mut path, &mut result);
-            }
-        }
-
-        result
-    }
-
-    fn dfs(
-        board: &Vec<Vec<char>>,
-        pos: (usize, usize),
-        node: &TrieNode,
-        visited: &mut Vec<Vec<bool>>,
-        path: &mut Vec<(usize, usize)>,
-        result: &mut Vec<String>,
-    ) {
-        visited[pos.1][pos.0] = true;
-
-        if node.is_end_of_word {
-            let word: String = path.iter().map(|(x, y)| board[*y][*x]).collect();
-            result.push(word);
-        }
-
-        let Some(next_node) = node.children.get(&board[pos.1][pos.0]) {
-            
-        }
-
-        let directions = [(0, 1), (1, 0), (0, usize::MAX), (usize::MAX, 0)];
-        for &(dr, dc) in &directions {
-            let (new_row, new_col) = match (dr, dc) {
-                (0, usize::MAX) => { // up
-                    if row == 0 { continue; }
-                    (row - 1, col)
-                },
-                (usize::MAX, 0) => { // left
-                    if col == 0 { continue; }
-                    (row, col - 1)
-                },
-                _ => (row + dr, col + dc) // down or right
-            };
-
-            // Skip if out of bounds
-            if new_row >= board.len() || new_col >= board[0].len() {
-                continue;
-            }
-
-            if dfs(board, (new_col, new_row), node, visited, path, result) {
-                return true;
-            }
-        }
-
-        visited[pos.1][pos.0] = false;
-    }
-
-    pub fn find_words_one_by_one(board: Vec<Vec<char>>, words: Vec<String>) -> Vec<String> {
-        let mut result = vec![];
-        for word in words {
-            if Solution::exist(&board, word.clone()) {
-                result.push(word);
-            }
-        }
-        result
-    }
 }
 
+#[derive(Debug)]
 pub struct TrieNode {
     is_end_of_word: bool,
     children: HashMap<char, TrieNode>,
