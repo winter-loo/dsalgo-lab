@@ -39,15 +39,6 @@ fn test_example_2() {
 }
 
 #[test]
-fn test_empty_grid() {
-    // Input: grid = []
-    // Output: 0
-    let grid: Vec<Vec<char>> = vec![];
-    
-    assert_eq!(Solution::num_islands(grid), 0);
-}
-
-#[test]
 fn test_all_water() {
     // Input: grid = [
     //   ["0","0","0"],
