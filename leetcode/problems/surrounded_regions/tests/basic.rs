@@ -8,16 +8,16 @@ fn test_example_1() {
         vec!['X', 'X', 'X', 'X'],
         vec!['X', 'O', 'O', 'X'],
         vec!['X', 'X', 'O', 'X'],
-        vec!['X', 'O', 'X', 'X']
+        vec!['X', 'O', 'X', 'X'],
     ];
-    
+
     let expected = vec![
         vec!['X', 'X', 'X', 'X'],
         vec!['X', 'X', 'X', 'X'],
         vec!['X', 'X', 'X', 'X'],
-        vec!['X', 'O', 'X', 'X']
+        vec!['X', 'O', 'X', 'X'],
     ];
-    
+
     Solution::solve(&mut board);
     assert_eq!(board, expected);
 }
@@ -27,9 +27,9 @@ fn test_example_2() {
     // Input: board = [["X"]]
     // Output: [["X"]]
     let mut board = vec![vec!['X']];
-    
+
     let expected = vec![vec!['X']];
-    
+
     Solution::solve(&mut board);
     assert_eq!(board, expected);
 }
@@ -38,16 +38,10 @@ fn test_example_2() {
 fn test_all_x() {
     // Input: board = [["X","X"],["X","X"]]
     // Output: [["X","X"],["X","X"]]
-    let mut board = vec![
-        vec!['X', 'X'],
-        vec!['X', 'X']
-    ];
-    
-    let expected = vec![
-        vec!['X', 'X'],
-        vec!['X', 'X']
-    ];
-    
+    let mut board = vec![vec!['X', 'X'], vec!['X', 'X']];
+
+    let expected = vec![vec!['X', 'X'], vec!['X', 'X']];
+
     Solution::solve(&mut board);
     assert_eq!(board, expected);
 }
@@ -57,16 +51,10 @@ fn test_all_o() {
     // Input: board = [["O","O"],["O","O"]]
     // Output: [["O","O"],["O","O"]]
     // All 'O's are on the border, so none are flipped
-    let mut board = vec![
-        vec!['O', 'O'],
-        vec!['O', 'O']
-    ];
-    
-    let expected = vec![
-        vec!['O', 'O'],
-        vec!['O', 'O']
-    ];
-    
+    let mut board = vec![vec!['O', 'O'], vec!['O', 'O']];
+
+    let expected = vec![vec!['O', 'O'], vec!['O', 'O']];
+
     Solution::solve(&mut board);
     assert_eq!(board, expected);
 }
@@ -79,15 +67,15 @@ fn test_o_in_center() {
     let mut board = vec![
         vec!['X', 'X', 'X'],
         vec!['X', 'O', 'X'],
-        vec!['X', 'X', 'X']
+        vec!['X', 'X', 'X'],
     ];
-    
+
     let expected = vec![
         vec!['X', 'X', 'X'],
         vec!['X', 'X', 'X'],
-        vec!['X', 'X', 'X']
+        vec!['X', 'X', 'X'],
     ];
-    
+
     Solution::solve(&mut board);
     assert_eq!(board, expected);
 }
@@ -100,15 +88,34 @@ fn test_o_connected_to_border() {
     let mut board = vec![
         vec!['X', 'X', 'X'],
         vec!['X', 'O', 'X'],
-        vec!['X', 'O', 'X']
+        vec!['X', 'O', 'X'],
     ];
-    
+
     let expected = vec![
         vec!['X', 'X', 'X'],
         vec!['X', 'O', 'X'],
-        vec!['X', 'O', 'X']
+        vec!['X', 'O', 'X'],
     ];
-    
+
+    Solution::solve(&mut board);
+    assert_eq!(board, expected);
+}
+
+#[test]
+fn test_example_3() {
+    let mut board = vec![
+        vec!['X', 'X', 'X', 'X'],
+        vec!['X', 'O', 'O', 'X'],
+        vec!['X', 'O', 'O', 'X'],
+        vec!['X', 'O', 'X', 'X'],
+    ];
+    let expected = vec![
+        vec!['X', 'X', 'X', 'X'],
+        vec!['X', 'O', 'O', 'X'],
+        vec!['X', 'O', 'O', 'X'],
+        vec!['X', 'O', 'X', 'X'],
+    ];
+
     Solution::solve(&mut board);
     assert_eq!(board, expected);
 }

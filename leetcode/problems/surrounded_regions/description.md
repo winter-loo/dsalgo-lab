@@ -21,6 +21,6 @@ Output: [["X"]]
 
 **Constraints:**
 - m == board.length
-- n == board[i].length
+- n == board\[i\].length
 - 1 <= m, n <= 200
-- board[i][j] is 'X' or 'O'.
+- board\[i\]\[j\] is 'X' or 'O'.
