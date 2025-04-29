@@ -24,6 +24,6 @@ Output: [[-1]]
 
 **Constraints:**
 - m == rooms.length
-- n == rooms[i].length
+- n == rooms\[i\].length
 - 1 <= m, n <= 250
-- rooms[i][j] is -1, 0, or 2^31 - 1
+- rooms\[i\]\[j\] is -1, 0, or 2^31 - 1

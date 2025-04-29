@@ -24,6 +24,6 @@ Output: [[0,0],[0,1],[1,0],[1,1]]
 
 **Constraints:**
 - m == heights.length
-- n == heights[r].length
+- n == heights\[r\].length
 - 1 <= m, n <= 200
-- 0 <= heights[r][c] <= 10^5
+- 0 <= heights\[r\]\[c\] <= 10^5
