@@ -29,4 +29,4 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 - `0 <= prerequisites.length <= 5000`
 - `prerequisites[i].length == 2`
 - `0 <= ai, bi < numCourses`
-- All the pairs prerequisites[i] are **unique**.
+- All the pairs prerequisites\[i\] are **unique**.

@@ -21,6 +21,6 @@
 
 6. Remember that the input format is different from a typical graph representation. You'll need to convert the prerequisites array into an adjacency list or matrix.
 
-7. Be careful with the direction of edges in your graph. If [a, b] means "a depends on b", then the edge should go from b to a in your graph, not from a to b.
+7. Be careful with the direction of edges in your graph. If \[a, b\] means "a depends on b", then the edge should go from b to a in your graph, not from a to b.
 
 8. Consider edge cases: What if there are no prerequisites at all? What if there are isolated courses with no dependencies?
