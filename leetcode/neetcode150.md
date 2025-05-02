@@ -91,8 +91,8 @@ Problems relying heavily on math insights are marked with deleting line.
 - [ ] 89. [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)
 - [ ] 90. [Number of Connected Components In An Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/)
 - [x] 91. [Redundant Connection](https://leetcode.com/problems/redundant-connection/)
-- [ ] 92. [Word Ladder](https://leetcode.com/problems/word-ladder/)
-- [ ] 93. [Network Delay Time](https://leetcode.com/problems/network-delay-time/)
+- [x] 92. [Word Ladder](https://leetcode.com/problems/word-ladder/)
+- [x] 93. [Network Delay Time](https://leetcode.com/problems/network-delay-time/)
 - [ ] 94. [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
 - [ ] 95. [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/)
 - [ ] 96. ~~[Swim In Rising Water](https://leetcode.com/problems/swim-in-rising-water/)~~
