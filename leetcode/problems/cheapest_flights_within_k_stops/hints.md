@@ -12,7 +12,7 @@
    - Dijkstra's Algorithm (modified to track stops)
 
 5. For the Bellman-Ford approach:
-   - Initialize a distance array where dist[i] represents the minimum cost to reach city i from the source.
+   - Initialize a distance array where dist\[i\] represents the minimum cost to reach city i from the source.
    - Relax all edges k+1 times (since we can have at most k stops, which means k+1 edges).
    - Be careful not to use updated values within the same iteration, as this could lead to paths with more than k+1 edges.
 
