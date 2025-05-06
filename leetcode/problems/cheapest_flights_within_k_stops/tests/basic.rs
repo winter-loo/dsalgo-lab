@@ -258,3 +258,21 @@ fn test_example_7() {
 
     assert_eq!(Solution::find_cheapest_price(n, flights, src, dst, k), 47);
 }
+
+#[test]
+fn test_example_8() {
+    let n = 5;
+    let flights = vec![
+        vec![0, 1, 2],
+        vec![1, 3, 2],
+        vec![0, 3, 5],
+        vec![3, 2, 5],
+        vec![3, 4, 1],
+        vec![4, 2, 1],
+    ];
+    let src = 0;
+    let dst = 2;
+    let k = 2;
+
+    assert_eq!(Solution::find_cheapest_price(n, flights, src, dst, k), 7);
+}
