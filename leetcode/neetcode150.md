@@ -98,9 +98,9 @@ Problems relying heavily on math insights are marked with deleting line.
 - [ ] 96. ~~[Swim In Rising Water](https://leetcode.com/problems/swim-in-rising-water/)~~
 - [x] 97. [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/)
 - [x] 98. [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)
-- [ ] 99. [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
-- [ ] 100. [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
-- [ ] 101. [House Robber](https://leetcode.com/problems/house-robber/)
+- [x] 99. [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
+- [x] 100. [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
+- [x] 101. [House Robber](https://leetcode.com/problems/house-robber/)
 - [ ] 102. [House Robber II](https://leetcode.com/problems/house-robber-ii/)
 - [ ] 103. [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 - [ ] 104. [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)

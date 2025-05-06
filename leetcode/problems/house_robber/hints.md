@@ -6,13 +6,13 @@
 
 3. This is a perfect fit for dynamic programming, where each state depends on previous decisions.
 
-4. Consider using an array where dp[i] represents the maximum amount of money you can rob up to house i.
+4. Consider using an array where `dp[i]` represents the maximum amount of money you can rob up to house i.
 
 5. For each house, you have two options:
    - Rob the current house and add its value to the maximum amount robbed up to two houses ago
    - Skip the current house and take the maximum amount robbed up to the previous house
 
-6. The recurrence relation is: dp[i] = max(dp[i-2] + nums[i], dp[i-1])
+6. The recurrence relation is: `dp[i] = max(dp[i-2] + nums[i], dp[i-1])`
 
 7. Be careful with the base cases, especially when handling arrays with only one or two elements.
 

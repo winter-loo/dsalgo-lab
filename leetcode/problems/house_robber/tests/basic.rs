@@ -43,3 +43,21 @@ fn test_alternating_values() {
     let nums = vec![2, 1, 2, 1, 2];
     assert_eq!(Solution::rob(nums), 6);
 }
+
+#[test]
+fn test_example_3() {
+    let nums = vec![2,1,1,2];
+    assert_eq!(Solution::rob(nums), 4);
+}
+
+#[test]
+fn test_example_4() {
+    let nums = vec![2,1,9,11,1];
+    assert_eq!(Solution::rob(nums), 13);
+}
+
+#[test]
+fn test_example_5() {
+    let nums = vec![2,1,9,11,3];
+    assert_eq!(Solution::rob(nums), 14);
+}
