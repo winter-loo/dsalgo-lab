@@ -6,7 +6,7 @@
 
 3. This means the number of ways to reach the nth step is the sum of the number of ways to reach the (n-1)th step and the (n-2)th step.
 
-4. This is a classic dynamic programming problem. Consider using an array where dp[i] represents the number of ways to reach the ith step.
+4. This is a classic dynamic programming problem. Consider using an array where dp\[i\] represents the number of ways to reach the ith step.
 
 5. The base cases are simple: there is 1 way to climb 1 step and 2 ways to climb 2 steps.
 
