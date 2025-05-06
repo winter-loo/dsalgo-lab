@@ -4,6 +4,7 @@ use std::cmp::Reverse;
 use std::collections::{BinaryHeap, HashMap};
 
 impl Solution {
+    // a typical example is the test_example_5
     pub fn find_cheapest_price(n: i32, flights: Vec<Vec<i32>>, src: i32, dst: i32, k: i32) -> i32 {
         use std::collections::VecDeque;
         const COST_INF: i32 = (1e4 as i32) + 1;
@@ -26,7 +27,7 @@ impl Solution {
         let mut ans = cost_inf;
 
         while let Some((node, stops, cost)) = q.pop_front() {
-            println!("node={node}, stops={stops}, cost={cost}");
+            println!("node={node}, stops={stops}, cost={cost}, costs={costs:?}");
 
             if node == dst {
                 ans = ans.min(cost);
