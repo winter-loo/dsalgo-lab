@@ -12,8 +12,8 @@
 
 6. Remember to consider both odd-length palindromes (with a single character at the center) and even-length palindromes (with two characters at the center).
 
-7. Dynamic programming can also be used: define dp[i][j] to be true if the substring from i to j is a palindrome.
+7. Dynamic programming can also be used: define `dp[i][j]` to be true if the substring from i to j is a palindrome.
 
-8. For the DP approach, the recurrence relation is: dp[i][j] = (s[i] == s[j]) && dp[i+1][j-1]
+8. For the DP approach, the recurrence relation is: `dp[i][j] = (s[i] == s[j]) && dp[i+1][j-1]`
 
 9. Be careful with edge cases, such as empty strings or strings with only one character.

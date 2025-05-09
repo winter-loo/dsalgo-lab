@@ -46,3 +46,10 @@ fn test_multiple_palindromes() {
     let s = "aacabdkacaa".to_string();
     assert_eq!(Solution::longest_palindrome(s), "aca");
 }
+
+#[test]
+fn test_example_3() {
+    // String with multiple palindromes of the same length
+    let s = "xaabacxcabaaxcabaax".to_string();
+    assert_eq!(Solution::longest_palindrome(s), "xaabacxcabaax");
+}
