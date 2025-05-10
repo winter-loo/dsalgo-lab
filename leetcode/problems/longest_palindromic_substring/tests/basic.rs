@@ -6,6 +6,7 @@ fn test_example_1() {
     // Output: "bab" or "aba"
     let s = "babad".to_string();
     let result = Solution::longest_palindrome(s);
+    println!("result={result:?}");
     assert!(result == "bab" || result == "aba");
 }
 
@@ -52,4 +53,11 @@ fn test_example_3() {
     // String with multiple palindromes of the same length
     let s = "xaabacxcabaaxcabaax".to_string();
     assert_eq!(Solution::longest_palindrome(s), "xaabacxcabaax");
+}
+
+#[test]
+fn test_example_4() {
+    // String with multiple palindromes of the same length
+    let s = "abb".to_string();
+    assert_eq!(Solution::longest_palindrome(s), "bb");
 }

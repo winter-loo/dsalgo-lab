@@ -7,30 +7,49 @@ impl Solution {
 
     // only works for odd number of characters
     pub fn longest_palindrome_outwards(s: String) -> String {
-        let s: Vec<_> = s.chars().collect();        
-        let (mut mlen, mut ml, mut mr) = (0, 0, 0);
-        if s.len() % 2 == 1 {
+        let s: Vec<_> = s.chars().collect();
+        let (odd_ml, odd_mr, odd_len) = {
+            let (mut mlen, mut ml, mut mr) = (0, 0, 0);
             for i in 1..s.len() {
-                let mut l = i - 1;
+                let mut l = (i - 1) as isize;
                 let mut r = i + 1;
-                while r < s.len() {
-                    if s[l] != s[r] {
-                        break;
-                    }
-                    let (l2, overflowed) = l.overflowing_sub(1);
-                    if overflowed {
-                        break;
-                    }
-                    l = l2;
+                while l >= 0 && r < s.len() && s[l as usize] == s[r] {
+                    l -= 1;
                     r += 1;
                 }
-                if r - l + 1 > mlen {
-                    mlen = r - l + 1;
-                    ml = l;
-                    mr = r;
+                let len = (r as isize - l - 1) as usize;
+                if len > mlen {
+                    mlen = len;
+                    ml = (l + 1) as usize;
+                    mr = r - 1;
                 }
             }
-        }
+            (ml, mr, mlen)
+        };
+        let (even_ml, even_mr, even_len) = {
+            let (mut mlen, mut ml, mut mr) = (0, 0, 0);
+            for i in 0..s.len() - 1 {
+                let mut l = i as isize;
+                let mut r = i + 1;
+                while l >= 0 && r < s.len() && s[l as usize] == s[r] {
+                    l -= 1;
+                    r += 1;
+                }
+                let len = (r as isize - l - 1) as usize;
+                if len > mlen {
+                    mlen = len;
+                    ml = (l + 1) as usize;
+                    mr = r - 1;
+                }
+            }
+            (ml, mr, mlen)
+        };
+        // println!("even_len={even_len}, odd_len={odd_len}");
+        let (ml, mr) = if even_len > odd_len {
+            (even_ml, even_mr)
+        } else {
+            (odd_ml, odd_mr)
+        };
         s[ml..=mr].into_iter().collect()
     }
 
