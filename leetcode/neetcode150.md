@@ -103,7 +103,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 101. [House Robber](https://leetcode.com/problems/house-robber/)
 - [x] 102. [House Robber II](https://leetcode.com/problems/house-robber-ii/)
 - [x] 103. [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
-- [ ] 104. [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
+- [x] 104. [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 - [ ] 105. [Decode Ways](https://leetcode.com/problems/decode-ways/)
 - [ ] 106. [Coin Change](https://leetcode.com/problems/coin-change/)
 - [ ] 107. ~~[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)~~
