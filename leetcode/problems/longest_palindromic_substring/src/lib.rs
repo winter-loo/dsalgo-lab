@@ -7,10 +7,10 @@ impl Solution {
 
     pub fn longest_palindrome_outwards(s: String) -> String {
         let s: Vec<_> = s.chars().collect();
-        let (odd_ml, odd_mr, odd_len) = {
+        fn my_solution(s: &[char], odd: bool) -> &[char] {
             let (mut mlen, mut ml, mut mr) = (0, 0, 0);
             for i in 0..s.len() {
-                let mut l = i as isize - 1;
+                let mut l = if odd { i as isize - 1 } else { i as isize };
                 let mut r = i + 1;
                 while l >= 0 && r < s.len() && s[l as usize] == s[r] {
                     l -= 1;
@@ -23,33 +23,13 @@ impl Solution {
                     mr = r - 1;
                 }
             }
-            (ml, mr, mlen)
-        };
-        let (even_ml, even_mr, even_len) = {
-            let (mut mlen, mut ml, mut mr) = (0, 0, 0);
-            for i in 0..s.len() {
-                let mut l = i as isize;
-                let mut r = i + 1;
-                while l >= 0 && r < s.len() && s[l as usize] == s[r] {
-                    l -= 1;
-                    r += 1;
-                }
-                let len = (r as isize - l - 1) as usize;
-                if len > mlen {
-                    mlen = len;
-                    ml = (l + 1) as usize;
-                    mr = r - 1;
-                }
-            }
-            (ml, mr, mlen)
-        };
-        // println!("even_len={even_len}, odd_len={odd_len}");
-        let (ml, mr) = if even_len > odd_len {
-            (even_ml, even_mr)
-        } else {
-            (odd_ml, odd_mr)
-        };
-        s[ml..=mr].into_iter().collect()
+            &s[ml..=mr]
+        }
+        let s1 = my_solution(&s, true);
+        let s2 = my_solution(&s, false);
+        if s1.len() > s2.len() { s1 } else { s2 }
+            .into_iter()
+            .collect()
     }
 
     // cbbd
