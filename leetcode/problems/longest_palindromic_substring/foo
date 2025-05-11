@@ -1,0 +1,8 @@
+# 玩转 Visual Mode
+
+1. charwise-visual
+2. linewise-visual
+3. columnwise-visual
+4. stop visual mode : use 'vv' instead of 'ctrl-c' or 'esc'
+5. change visual area
+o, O, '<, '>, gv

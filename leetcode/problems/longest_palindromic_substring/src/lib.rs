@@ -5,13 +5,12 @@ impl Solution {
         Solution::longest_palindrome_outwards(s)
     }
 
-    // only works for odd number of characters
     pub fn longest_palindrome_outwards(s: String) -> String {
         let s: Vec<_> = s.chars().collect();
         let (odd_ml, odd_mr, odd_len) = {
             let (mut mlen, mut ml, mut mr) = (0, 0, 0);
-            for i in 1..s.len() {
-                let mut l = (i - 1) as isize;
+            for i in 0..s.len() {
+                let mut l = i as isize - 1;
                 let mut r = i + 1;
                 while l >= 0 && r < s.len() && s[l as usize] == s[r] {
                     l -= 1;
@@ -28,7 +27,7 @@ impl Solution {
         };
         let (even_ml, even_mr, even_len) = {
             let (mut mlen, mut ml, mut mr) = (0, 0, 0);
-            for i in 0..s.len() - 1 {
+            for i in 0..s.len() {
                 let mut l = i as isize;
                 let mut r = i + 1;
                 while l >= 0 && r < s.len() && s[l as usize] == s[r] {
