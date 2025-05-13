@@ -50,6 +50,12 @@ fn test_with_zeros() {
 
 #[test]
 fn test_example_4() {
+    let s = "11111".to_string();
+    assert_eq!(Solution::num_decodings(s), 8);
+}
+
+#[test]
+fn test_example_5() {
     let s = "111111111111111111111111111111111111111111111".to_string();
     assert_eq!(Solution::num_decodings(s), 3);
 }
