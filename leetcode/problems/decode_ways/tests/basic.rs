@@ -47,3 +47,9 @@ fn test_with_zeros() {
     let s = "1201234".to_string();
     assert_eq!(Solution::num_decodings(s), 3);
 }
+
+#[test]
+fn test_example_4() {
+    let s = "111111111111111111111111111111111111111111111".to_string();
+    assert_eq!(Solution::num_decodings(s), 3);
+}
