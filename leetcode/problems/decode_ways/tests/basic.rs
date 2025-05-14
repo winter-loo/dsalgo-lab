@@ -56,6 +56,19 @@ fn test_example_4() {
 
 #[test]
 fn test_example_5() {
+    let s = "120".to_string();
+    assert_eq!(Solution::num_decodings(s), 1);
+}
+
+#[test]
+fn test_example_6() {
+    let s = "1201".to_string();
+    assert_eq!(Solution::num_decodings(s), 1);
+}
+
+// resulting Time Limit Exceeded
+#[test]
+fn test_perf() {
     let s = "111111111111111111111111111111111111111111111".to_string();
-    assert_eq!(Solution::num_decodings(s), 3);
+    assert_eq!(Solution::num_decodings(s), 1836311903);
 }
