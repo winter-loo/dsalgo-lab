@@ -1,0 +1,38 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+index=0 c=1 sum=0 mem=[-1, -1, -1]
+index=1 c=2 sum=0 mem=[-1, -1, -1]
+index=2 c=0 sum=0 mem=[-1, -1, -1]
+111_FINAL index=3 sum=0 mem=[-1, -1, -1], returning n=0
+333_FINAL invalid, index=2 c=0 sum=0 mem=[-1, -1, -1], returning 0
+before diving into right tree, index=1, new_sum=2
+index=2 c=0 sum=2 mem=[-1, -1, -1]
+111_FINAL index=3 sum=0 mem=[-1, -1, -1], returning n=0
+before diving into right tree, index=2, new_sum=20
+111_FINAL index=3 sum=20 mem=[-1, -1, -1], returning n=1
+444_FINAL => index=2 c=0 sum=2 mem=[-1, -1, 1], returning n=1
+444_FINAL => index=1 c=2 sum=0 mem=[-1, 1, 1], returning n=1
+before diving into right tree, index=0, new_sum=1
+index=1 c=2 sum=1 mem=[-1, 1, 1]
+index=2 c=0 sum=0 mem=[-1, 1, 1]
+222_FINAL index=2 c=0 sum=0 mem=[-1, 1, 1], returning n=1
+before diving into right tree, index=1, new_sum=12
+index=2 c=0 sum=12 mem=[-1, 1, 1]
+111_FINAL index=3 sum=0 mem=[-1, 1, 1], returning n=0
+333_FINAL invalid, index=2 c=0 sum=12 mem=[-1, 1, 1], returning 0
+444_FINAL => index=1 c=2 sum=1 mem=[-1, 1, 1], returning n=1
+444_FINAL => index=0 c=1 sum=0 mem=[2, 1, 1], returning n=2
+test test_example_5 ... FAILED
+
+failures:
+
+failures:
+    test_example_5
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 9 filtered out; finished in 0.00s
+
