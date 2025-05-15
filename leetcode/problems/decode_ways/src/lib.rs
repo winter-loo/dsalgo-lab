@@ -41,6 +41,7 @@ impl Solution {
             return if s[0] != '0' { 1 } else { 0 };
         }
 
+        // set initial values
         let last_digit = s[s.len() - 1].to_digit(10).unwrap_or(0);
         let next_to_last_digit = s[s.len() - 2].to_digit(10).unwrap_or(0);
         let sum = if next_to_last_digit == 0 {
@@ -48,25 +49,31 @@ impl Solution {
         } else {
             next_to_last_digit * 10 + last_digit
         };
+        // order: f4, f3, f2, f1
         let mut f1 = if sum > 0 && sum <= 26 { 1 } else { 0 };
         let mut f2 = if last_digit == 0 { 0 } else { 1 };
-        let mut ans = f1 + f2;
-        for i in (0..s.len() - 2).rev() {
+
+        // dynamically calculating the answer
+        let mut ans = 0;
+        for i in (0..s.len() - 1).rev() {
+            // println!("f1={f1} f2={f2} ans={ans}");
             let digit = s[i].to_digit(10).unwrap_or(0);
+            // println!("current digit={digit}");
             if digit == 0 {
                 ans = 0;
             } else {
-                ans = f1;
+                ans = f2;
 
                 let prev_digit = s[i + 1].to_digit(10).unwrap_or(0);
                 let sum = digit * 10 + prev_digit;
                 if sum > 0 && sum <= 26 {
-                    ans += f2;
+                    ans += f1;
                 }
             }
 
             f1 = f2;
             f2 = ans;
+            // println!("done f1={f1} f2={f2} ans={ans}");
         }
         ans as i32
     }
