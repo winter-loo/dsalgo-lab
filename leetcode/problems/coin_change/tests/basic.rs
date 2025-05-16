@@ -51,3 +51,12 @@ fn test_exact_coin() {
     let amount = 10;
     assert_eq!(Solution::coin_change(coins, amount), 1);
 }
+
+#[test]
+// #[ignore]
+fn test_perf() {
+    // Amount exactly matches one of the coins
+    let coins = vec![411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422];
+    let amount = 9864;
+    assert_eq!(Solution::coin_change(coins, amount), 1);
+}

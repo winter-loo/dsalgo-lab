@@ -17,7 +17,8 @@ impl Solution {
     }
 }
 
-// [1, 3, 4, 5] requires to find all paths leading to zero and use the minimum
+// https://excalidraw.com/#json=V72d10JDhjU4ZG8ap_abM,kYVItAkUmeoRoPpROWkxEQ
+// test_multiple_solutions requires to find all paths leading to zero and use the minimum
 // count coins as the optimized path
 fn backtrack(
     coins: &[i32],
@@ -35,17 +36,16 @@ fn backtrack(
     }
     for i in index..coins.len() {
         let left = amount - coins[i];
-        if left < 0 {
-            break;
-        }
-        *count += 1;
-        if backtrack(coins, index, left, count, min_count) {
-            if *count < *min_count {
-                println!("update min_count to {}", *min_count);
-                *min_count = *count;
+        if left >= 0 {
+            *count += 1;
+            if backtrack(coins, i, left, count, min_count) {
+                if *count < *min_count {
+                    println!("update min_count to {}", *count);
+                    *min_count = *count;
+                }
             }
+            *count -= 1;
         }
-        *count -= 1;
     }
     false
 }
