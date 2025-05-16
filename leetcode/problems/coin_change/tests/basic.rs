@@ -33,7 +33,7 @@ fn test_multiple_solutions() {
     // Multiple ways to make the amount, should return the minimum
     let coins = vec![1, 3, 4, 5];
     let amount = 7;
-    assert_eq!(Solution::coin_change(coins, amount), 2); // 3 + 4 or 7 * 1
+    assert_eq!(Solution::coin_change(coins, amount), 2); // 3 + 4 or 7 + 1 + 1
 }
 
 #[test]
@@ -41,7 +41,7 @@ fn test_large_amount() {
     // Larger amount that requires multiple coins
     let coins = vec![2, 5, 10, 25];
     let amount = 99;
-    assert_eq!(Solution::coin_change(coins, amount), 9); // 25 + 25 + 25 + 10 + 10 + 2 + 2
+    assert_eq!(Solution::coin_change(coins, amount), 7); // 25 + 25 + 25 + 10 + 10 + 2 + 2
 }
 
 #[test]
