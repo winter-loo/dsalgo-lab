@@ -105,15 +105,15 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 103. [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 - [x] 104. [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 - [x] 105. [Decode Ways](https://leetcode.com/problems/decode-ways/)
-- [ ] 106. [Coin Change](https://leetcode.com/problems/coin-change/)
+- [x] 106. [Coin Change](https://leetcode.com/problems/coin-change/)
 - [ ] 107. ~~[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)~~
-- [ ] 108. [Word Break](https://leetcode.com/problems/word-break/)
+- [x] 108. [Word Break](https://leetcode.com/problems/word-break/)
 - [ ] 109. [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [ ] 110. [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 - [ ] 111. ~~[Unique Paths](https://leetcode.com/problems/unique-paths/)~~
 - [ ] 112. [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [ ] 113. [Best Time to Buy And Sell Stock With Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
-- [ ] 114. [Coin Change II](https://leetcode.com/problems/coin-change-ii/)
+- [x] 114. [Coin Change II](https://leetcode.com/problems/coin-change-ii/)
 - [ ] 115. [Target Sum](https://leetcode.com/problems/target-sum/)
 - [ ] 116. [Interleaving String](https://leetcode.com/problems/interleaving-string/)
 - [ ] 117. [Longest Increasing Path In a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
