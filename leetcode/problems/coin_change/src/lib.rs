@@ -142,6 +142,27 @@ impl Solution {
         }
     }
 
+    // TODO: fix
+    pub fn coin_change_simplified_recursion(coins: Vec<i32>, amount: i32) -> i32 {
+        fn dfs(sum: i32, amount: i32, coins: &[i32]) -> i32 {
+            if sum == amount {
+                println!("reached");
+                return 0;
+            }
+            let mut ans = amount + 1;
+            for i in 0..coins.len() {
+                println!("sum={sum} coin={}", coins[i]);
+                if coins[i] + sum <= amount {
+                    println!("use coin={}", coins[i]);
+                    ans = ans.min(1 + dfs(sum + coins[i], amount, coins));
+                }
+            }
+            println!("sum={sum} ans={ans}");
+            ans
+        }
+        dfs(0, amount, &coins)
+    }
+
     pub fn coin_change1(mut coins: Vec<i32>, amount: i32) -> i32 {
         // https://excalidraw.com/#json=V72d10JDhjU4ZG8ap_abM,kYVItAkUmeoRoPpROWkxEQ
         // test_multiple_solutions requires to find all paths leading to zero and use the minimum
