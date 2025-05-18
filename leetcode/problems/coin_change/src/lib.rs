@@ -1,10 +1,14 @@
 pub struct Solution;
 
+// the common dp solution is diagrammed as
+// https://excalidraw.com/#json=b9nA3XvIrA3sfJLgt0O1j,nXi2WU5Osn-Fara92vx-Qw
+
 impl Solution {
     pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {
         Solution::coin_change_dp(coins, amount)
     }
 
+    // This is my own dp solution and
     // this dp idea comes from the memoization implementation
     //
     // 5,4,3    7
