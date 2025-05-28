@@ -45,3 +45,17 @@ fn test_larger_example() {
     let nums = vec![3, 3, 3, 4, 5];
     assert_eq!(Solution::can_partition(nums), true);
 }
+
+#[test]
+fn test_example_3() {
+    // Larger example that can be partitioned
+    let nums = vec![100, 100, 97, 99];
+    assert_eq!(Solution::can_partition(nums), false);
+}
+
+#[test]
+fn test_example_4() {
+    // Larger example that can be partitioned
+    let nums = vec![2, 2, 1, 1];
+    assert_eq!(Solution::can_partition(nums), true);
+}
