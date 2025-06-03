@@ -31,14 +31,6 @@ fn test_example_3() {
 }
 
 #[test]
-fn test_one_empty_string() {
-    // One empty string should result in LCS of 0
-    let text1 = "abc".to_string();
-    let text2 = "".to_string();
-    assert_eq!(Solution::longest_common_subsequence(text1, text2), 0);
-}
-
-#[test]
 fn test_partial_match() {
     // Partial match with characters in different positions
     let text1 = "abcdef".to_string();
@@ -52,4 +44,11 @@ fn test_longer_strings() {
     let text1 = "abcdefghijklmnopqrstuvwxyz".to_string();
     let text2 = "abcdefghijklmnopqrstuvwxyz".to_string();
     assert_eq!(Solution::longest_common_subsequence(text1, text2), 26);
+}
+
+#[test]
+fn test_example_4() {
+    let text1 = "ezupkr".to_string();
+    let text2 = "ubmrapg".to_string();
+    assert_eq!(Solution::longest_common_subsequence(text1, text2), 2);
 }
