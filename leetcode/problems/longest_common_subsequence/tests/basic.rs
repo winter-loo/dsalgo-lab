@@ -2,8 +2,8 @@ use longest_common_subsequence::Solution;
 
 #[test]
 fn test_example_1() {
-    // Input: text1 = "abcde", text2 = "ace" 
-    // Output: 3  
+    // Input: text1 = "abcde", text2 = "ace"
+    // Output: 3
     // Explanation: The longest common subsequence is "ace" and its length is 3.
     let text1 = "abcde".to_string();
     let text2 = "ace".to_string();
@@ -51,4 +51,27 @@ fn test_example_4() {
     let text1 = "ezupkr".to_string();
     let text2 = "ubmrapg".to_string();
     assert_eq!(Solution::longest_common_subsequence(text1, text2), 2);
+}
+
+#[test]
+fn test_example_5() {
+    let text1 = "oxcpqrsvwf".to_string();
+    let text2 = "shmtulqrypy".to_string();
+    assert_eq!(Solution::longest_common_subsequence(text1, text2), 2);
+}
+
+#[test]
+fn test_example_6() {
+    let text1 = "hofubmnylkra".to_string();
+    let text2 = "pqhgxgdofcvmr".to_string();
+    assert_eq!(Solution::longest_common_subsequence(text1, text2), 5);
+}
+
+#[test]
+fn test_example_7() {
+    // in this example, we could know that when 'q' matches we should not
+    // choose it.
+    let text1 = "mhunuzqrkzsnidwbun".to_string();
+    let text2 = "szulspmhwpazoxijwbq".to_string();
+    assert_eq!(Solution::longest_common_subsequence(text1, text2), 6);
 }
