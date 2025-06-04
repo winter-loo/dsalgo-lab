@@ -108,10 +108,10 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 106. [Coin Change](https://leetcode.com/problems/coin-change/)
 - [ ] 107. ~~[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)~~
 - [x] 108. [Word Break](https://leetcode.com/problems/word-break/)
-- [ ] 109. [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
-- [ ] 110. [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
+- [x] 109. [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+- [x] 110. [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 - [ ] 111. ~~[Unique Paths](https://leetcode.com/problems/unique-paths/)~~
-- [ ] 112. [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+- [x] 112. [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [ ] 113. [Best Time to Buy And Sell Stock With Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
 - [x] 114. [Coin Change II](https://leetcode.com/problems/coin-change-ii/)
 - [ ] 115. [Target Sum](https://leetcode.com/problems/target-sum/)

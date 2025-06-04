@@ -1,6 +1,13 @@
 use longest_common_subsequence::Solution;
 
 #[test]
+fn test_example_0() {
+    let text1 = "abcde".to_string();
+    let text2 = "aceb".to_string();
+    assert_eq!(Solution::longest_common_subsequence(text1, text2), 3);
+}
+
+#[test]
 fn test_example_1() {
     // Input: text1 = "abcde", text2 = "ace"
     // Output: 3
@@ -51,6 +58,16 @@ fn test_example_4() {
     let text1 = "ezupkr".to_string();
     let text2 = "ubmrapg".to_string();
     assert_eq!(Solution::longest_common_subsequence(text1, text2), 2);
+    //              g   p   a   r   m   b   u
+    //   I/J    7   6   5   4   3   2   1   0
+    //       +-------------------------------
+    //     6 |  0   0   0   0   0   0   0   0
+    //  r  5 |  0   0   0   0   1   1   1   1
+    //  k  4 |  0   0   0   0   1   1   1   1
+    //  p  3 |  0   0   1   1   1   1   1   1
+    //  u  2 |  0   0   1   1   1   1   1   2
+    //  z  1 |  0   0   1   1   1   1   1   1
+    //  e  0 |  0   0   1   1   1   1   1   1
 }
 
 #[test]
