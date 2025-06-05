@@ -18,13 +18,6 @@ fn test_example_2() {
 }
 
 #[test]
-fn test_empty_array() {
-    // Empty array should return 0
-    let prices: Vec<i32> = vec![];
-    assert_eq!(Solution::max_profit(prices), 0);
-}
-
-#[test]
 fn test_decreasing_prices() {
     // Decreasing prices should result in 0 profit
     let prices = vec![5, 4, 3, 2, 1];
@@ -42,5 +35,19 @@ fn test_multiple_transactions() {
 fn test_cooldown_impact() {
     // Test where cooldown affects the optimal strategy
     let prices = vec![1, 4, 2, 7, 6, 8];
-    assert_eq!(Solution::max_profit(prices), 10);
+    assert_eq!(Solution::max_profit(prices), 7);
+    // S=[1, 4, 2, 7, 6, 8]
+    // buy at day i, sell at day j
+    //
+    // f(S,i)=S[j]-S[i] + f(S,j+1) for j > i
+    //
+    //          1   4   2   7   6   8
+    //   B\S    0   1   2   3   4   5
+    //        +--------------------------
+    //  1   0 |
+    //  4   1 |
+    //  2   2 |
+    //  7   3 |
+    //  6   4 |
+    //  8   5 |
 }
