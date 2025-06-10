@@ -6,6 +6,8 @@ impl Solution {
     // Here's thinking: '+' and '-' is the equivalent to 'select' and 'not select'.
     // So, '+' means select current element; '-' means not select current element.
     //
+    // See diagram here: https://excalidraw.com/#json=8Uex1KD2UEKUKNuzFhwQw,gj02JfuZY758LqI2yoLKxg
+    //
     // S=1,1,1,1,1 T=3
     // f(t,i) = f(t-S[i],i+1) + f(t+S[i],i+1) for i in [0,len(S)] and target is 't'.
     // The answer is `f(T,0)` which means staring from the index 0 of S, the number
