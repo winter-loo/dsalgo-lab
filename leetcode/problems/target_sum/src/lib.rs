@@ -23,22 +23,31 @@ impl Solution {
     // f(6, 3) = f(5, 4) + f(7, 4) = 0 + 0 = 0
     pub fn find_target_sum_ways(nums: Vec<i32>, target: i32) -> i32 {
         // problem constraint: `0 <= sum(nums[i]) <= 1000`
-        let n = nums.iter().sum::<i32>() + 1;
+        // let n = nums.iter().sum::<i32>() + 1;
+        // let mut dp = vec![vec![0; n as usize + 1]; nums.len()];
+        let n = 1000;
         let mut dp = vec![vec![0; n as usize + 1]; nums.len()];
-        println!("initial: {:?}", dp);
+        // for v in &dp {
+        //     println!("{:?}", v);
+        // }
+        // println!("--------------------");
 
-        dp[nums.len() - 1][nums[nums.len() - 1] as usize] = 1;
+        dp[nums.len() - 1][nums[nums.len() - 1] as usize] = nums
+            .last()
+            .is_some_and(|x| *x == 0)
+            .then_some(2)
+            .unwrap_or(1);
         for i in (0..nums.len() - 1).rev() {
             for j in 0..=n {
-                dp[i][j as usize] = dp[i + 1][(j - nums[i]).abs() as usize]
-                    + if j + nums[i] > n {
-                        0
-                    } else {
-                        dp[i + 1][(j + nums[i]) as usize]
-                    };
+                let used = dp[i + 1].get((j - nums[i]).abs() as usize).unwrap_or(&0);
+                let unused = dp[i + 1].get((j + nums[i]) as usize).unwrap_or(&0);
+                dp[i][j as usize] = used + unused;
             }
-            println!("updated: {dp:?}");
+            // for v in &dp {
+            //     println!("{:?}", v);
+            // }
+            // println!("--------------------");
         }
-        dp[nums.len() - 1][target.abs() as usize]
+        dp[0][target.abs() as usize]
     }
 }
