@@ -114,7 +114,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 112. [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [ ] 113. [Best Time to Buy And Sell Stock With Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
 - [x] 114. [Coin Change II](https://leetcode.com/problems/coin-change-ii/)
-- [ ] 115. [Target Sum](https://leetcode.com/problems/target-sum/)
+- [x] 115. [Target Sum](https://leetcode.com/problems/target-sum/)
 - [ ] 116. [Interleaving String](https://leetcode.com/problems/interleaving-string/)
 - [ ] 117. [Longest Increasing Path In a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
 - [ ] 118. [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)
