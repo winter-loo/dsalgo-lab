@@ -6,17 +6,17 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x]  4. [Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 - [x]  5. [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
 - [x]  6. [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/)
-- [x]  7. ~~[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)~~
+- [-]  7. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
 - [x]  8. [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
 - [x]  9. [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
 - [x] 10. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 - [x] 11. [Two Sum II Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 - [x] 12. [3Sum](https://leetcode.com/problems/3sum/)
-- [x] 13. ~~[Container With Most Water](https://leetcode.com/problems/container-with-most-water/)~~
-- [x] 14. ~~[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)~~
+- [-] 13. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
+- [-] 14. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
 - [x] 15. [Best Time to Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [x] 16. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
-- [x] 17. ~~[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)~~
+- [-] 17. [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
 - [x] 18. [Permutation In String](https://leetcode.com/problems/permutation-in-string/)
 - [x] 19. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 - [x] 20. [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
@@ -25,15 +25,15 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 23. [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
 - [x] 24. [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
 - [x] 25. [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
-- [x] 26. ~~[Car Fleet](https://leetcode.com/problems/car-fleet/)~~
+- [-] 26. [Car Fleet](https://leetcode.com/problems/car-fleet/)
 - [x] 27. [Largest Rectangle In Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
 - [x] 28. [Binary Search](https://leetcode.com/problems/binary-search/)
 - [x] 29. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)
-- [ ] 30. ~~[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)~~
+- [-] 30. [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
 - [x] 31. [Find Minimum In Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
 - [x] 32. [Search In Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 - [x] 33. [Time Based Key Value Store](https://leetcode.com/problems/time-based-key-value-store/)
-- [ ] 34. ~~[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)~~
+- [-] 34. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 - [x] 35. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 - [x] 36. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [x] 37. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
@@ -41,7 +41,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 39. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 - [ ] 40. [Copy List With Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
 - [x] 41. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
-- [ ] 42. ~~[Find The Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)~~
+- [-] 42. [Find The Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 - [x] 43. [LRU Cache](https://leetcode.com/problems/lru-cache/)
 - [x] 44. [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
 - [x] 45. [Reverse Nodes In K Group](https://leetcode.com/problems/reverse-nodes-in-k-group/)
@@ -64,7 +64,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 62. [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)
 - [x] 63. [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)
 - [x] 64. [Kth Largest Element In An Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
-- [x] 65. ~~[Task Scheduler](https://leetcode.com/problems/task-scheduler/)~~
+- [-] 65. [Task Scheduler](https://leetcode.com/problems/task-scheduler/)
 - [x] 66. [Design Twitter](https://leetcode.com/problems/design-twitter/)
 - [x] 67. [Find Median From Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
 - [x] 68. [Subsets](https://leetcode.com/problems/subsets/)
@@ -95,7 +95,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 93. [Network Delay Time](https://leetcode.com/problems/network-delay-time/)
 - [x] 94. [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
 - [x] 95. [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/)
-- [ ] 96. ~~[Swim In Rising Water](https://leetcode.com/problems/swim-in-rising-water/)~~
+- [-] 96. [Swim In Rising Water](https://leetcode.com/problems/swim-in-rising-water/)
 - [x] 97. [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/)
 - [x] 98. [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)
 - [x] 99. [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
@@ -106,25 +106,25 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 104. [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 - [x] 105. [Decode Ways](https://leetcode.com/problems/decode-ways/)
 - [x] 106. [Coin Change](https://leetcode.com/problems/coin-change/)
-- [ ] 107. ~~[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)~~
+- [-] 107. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)
 - [x] 108. [Word Break](https://leetcode.com/problems/word-break/)
 - [x] 109. [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [x] 110. [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
-- [ ] 111. ~~[Unique Paths](https://leetcode.com/problems/unique-paths/)~~
+- [-] 111. [Unique Paths](https://leetcode.com/problems/unique-paths/)
 - [x] 112. [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [ ] 113. [Best Time to Buy And Sell Stock With Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
 - [x] 114. [Coin Change II](https://leetcode.com/problems/coin-change-ii/)
 - [x] 115. [Target Sum](https://leetcode.com/problems/target-sum/)
-- [ ] 116. [Interleaving String](https://leetcode.com/problems/interleaving-string/)
+- [x] 116. [Interleaving String](https://leetcode.com/problems/interleaving-string/)
 - [ ] 117. [Longest Increasing Path In a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
 - [ ] 118. [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)
 - [ ] 119. [Edit Distance](https://leetcode.com/problems/edit-distance/)
 - [ ] 120. [Burst Balloons](https://leetcode.com/problems/burst-balloons/)
 - [ ] 121. [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)
-- [ ] 122. ~~[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)~~
-- [ ] 123. ~~[Jump Game](https://leetcode.com/problems/jump-game/)~~
-- [ ] 124. ~~[Jump Game II](https://leetcode.com/problems/jump-game-ii/)~~
-- [ ] 125. ~~[Gas Station](https://leetcode.com/problems/gas-station/)~~
+- [-] 122. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
+- [-] 123. [Jump Game](https://leetcode.com/problems/jump-game/)
+- [-] 124. [Jump Game II](https://leetcode.com/problems/jump-game-ii/)
+- [-] 125. [Gas Station](https://leetcode.com/problems/gas-station/)
 - [ ] 126. [Hand of Straights](https://leetcode.com/problems/hand-of-straights/)
 - [ ] 127. [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/)
 - [ ] 128. [Partition Labels](https://leetcode.com/problems/partition-labels/)
@@ -135,14 +135,14 @@ Problems relying heavily on math insights are marked with deleting line.
 - [ ] 133. [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)
 - [ ] 134. [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
 - [ ] 135. [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/)
-- [ ] 136. ~~[Rotate Image](https://leetcode.com/problems/rotate-image/)~~
-- [ ] 137. ~~[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)~~
-- [ ] 138. ~~[Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)~~
-- [ ] 139. ~~[Happy Number](https://leetcode.com/problems/happy-number/)~~
-- [ ] 140. ~~[Plus One](https://leetcode.com/problems/plus-one/)~~
-- [ ] 141. ~~[Pow(x, n)](https://leetcode.com/problems/powx-n/)~~
-- [ ] 142. ~~[Multiply Strings](https://leetcode.com/problems/multiply-strings/)~~
-- [ ] 143. ~~[Detect Squares](https://leetcode.com/problems/detect-squares/)~~
+- [-] 136. [Rotate Image](https://leetcode.com/problems/rotate-image/)
+- [-] 137. [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
+- [-] 138. [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
+- [-] 139. [Happy Number](https://leetcode.com/problems/happy-number/)
+- [-] 140. [Plus One](https://leetcode.com/problems/plus-one/)
+- [-] 141. [Pow(x, n)](https://leetcode.com/problems/powx-n/)
+- [-] 142. [Multiply Strings](https://leetcode.com/problems/multiply-strings/)
+- [-] 143. [Detect Squares](https://leetcode.com/problems/detect-squares/)
 - [ ] 144. [Single Number](https://leetcode.com/problems/single-number/)
 - [ ] 145. [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)
 - [ ] 146. [Counting Bits](https://leetcode.com/problems/counting-bits/)
