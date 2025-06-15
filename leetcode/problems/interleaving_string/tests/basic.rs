@@ -56,3 +56,11 @@ fn test_complex_interleaving() {
     let s3 = "afbgchdiej".to_string();
     assert_eq!(Solution::is_interleave(s1, s2, s3), true);
 }
+
+#[test]
+fn test_example_4() {
+    let s1 = "ab".to_string();
+    let s2 = "ccd".to_string();
+    let s3 = "acdab".to_string();
+    assert_eq!(Solution::is_interleave(s1, s2, s3), false);
+}
