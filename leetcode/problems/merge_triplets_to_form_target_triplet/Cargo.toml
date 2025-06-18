@@ -1,0 +1,6 @@
+[package]
+name = "merge_triplets_to_form_target_triplet"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
