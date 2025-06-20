@@ -71,3 +71,30 @@ fn test_completely_different_strings() {
     let word2 = "fghij".to_string();
     assert_eq!(Solution::min_distance(word1, word2), 5);
 }
+
+//                  a
+//              0   1
+//          ┌─────────
+//        0 │   0   1
+//      a 1 │   1   0
+//      b 2 │   2   1
+#[test]
+fn test_example_3() {
+    let word1 = "a".to_string();
+    let word2 = "ab".to_string();
+    assert_eq!(Solution::min_distance(word1, word2), 1);
+}
+
+#[test]
+fn test_example_4() {
+    let word1 = "zoo".to_string();
+    let word2 = "zo".to_string();
+    assert_eq!(Solution::min_distance(word1, word2), 1);
+}
+
+#[test]
+fn test_example_5() {
+    let word1 = "zoologicoarchaeologist".to_string();
+    let word2 = "zoogeologist".to_string();
+    assert_eq!(Solution::min_distance(word1, word2), 10);
+}
