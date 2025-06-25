@@ -101,7 +101,11 @@ impl Solution {
     //
     //      0 -> 2 -> 3 -> 4
     //      3    7    5    8
-    pub fn max_coins(nums: Vec<i32>) -> i32 {
+    //
+    //  ──────────────────────wrong algorithm ───────────────────────────
+    //
+    //  for '1 3 4 5', the result is wrong.
+    pub fn max_coins_wrong(nums: Vec<i32>) -> i32 {
         // remove zeros from both sides first
         let nums = nums.strip_prefix(&[0]).unwrap_or(&nums[..]);
         let nums = nums.strip_suffix(&[0]).unwrap_or(nums);
@@ -137,32 +141,81 @@ impl Solution {
         sum += nums[0] * nums[nums.len() - 1] + nums[nums.len() - 1];
         sum
     }
+
+    // 1 3 4 5
+    // 1 * 1 * 3, 3 4 5 => 3 + 80 = 83
+    // 1 * 3 * 4, 1 4 5 => 12 + 30 = 42
+    // 3 * 4 * 5, 1 3 5 => 60 + 25 = 85 ✅
+    // 4 * 5 * 1, 1 3 4 => 20 + 20 = 40
+    //
+    // 3 4 5
+    // 1 * 3 * 4, 4 5 => 12 + 25 = 37
+    // 3 * 4 * 5, 3 5 => 60 + 20 = 80 ✅
+    // 4 * 5 * 1, 3 4 => 20 + 16 = 36
+    //
+    // 1 4 5
+    // 1 * 1 * 4, 4 5 => 4 + 25 = 29
+    // 1 * 4 * 5, 1 5 => 20 + 10 = 30 ✅
+    // 4 * 5 * 1, 1 4 => 20 + 8 = 28
+    //
+    // 1 3 5
+    // 1 * 1 * 3, 3 5 => 3 + 20 = 23
+    // 1 * 3 * 5, 1 5 => 15 + 10 = 25 ✅
+    // 3 * 5 * 1, 1 3 => 15 + 6 = 21
+    //
+    // 1 3 4
+    // 1 * 1 * 3, 3 4 => 3 + 14 = 17
+    // 1 * 3 * 4, 1 4 => 12 + 8 = 20 ✅
+    // 3 * 4 * 1, 1 3 => 12 + 6 = 18
+    //
+    pub fn max_coins(nums: Vec<i32>) -> i32 {
+        fn recur(nums: &[i32], neighbor_chain: ChainList, sum: &mut i32, max_sum: &mut i32) {
+            if neighbor_chain.empty() {
+                max_sum = max_sum.max(sum);
+                return;
+            }
+            for (i, n) in neighbor_chain.iter().enumerate() {
+                let nber = neighbor_chain.get_neighbors(*i);
+                let prev = nber.0.unwrap();
+                let next = nber.1.unwrap();
+                sum += nums[i] * nums[prev] * nums[next];
+                println!("prev={prev} next={next}");
+                recur(nums, neighbor_chain, sum, max_sum);
+            }
+        }
+        let mut max_sum = 0;
+        let mut sum = 0;
+        recur(&nums[..], neighbor_chin, &mut sum, &mut max_sum)
+        max_sum
+    }
 }
 
 #[derive(Debug, Clone)]
-struct Node {
+struct Link {
     prev: i32,
     next: i32,
-    dead: bool,
+    used: bool,
 }
 
-impl Node {
-    fn new() -> Node {
-        Node {
+impl Link {
+    fn new() -> Link {
+        Link {
             prev: -1,
             next: i32::MAX,
-            dead: false,
+            used: false,
         }
     }
 }
 
 struct ChainList {
-    nodes: Vec<Node>,
+    nodes: Vec<Link>,
+    initial: usize,
+    len: usize,
 }
 
 impl ChainList {
     fn from(nums: &[i32]) -> Self {
-        let mut nodes = vec![Node::new(); nums.len()];
+        let mut nodes = vec![Link::new(); nums.len()];
         for (i, node) in nodes.iter_mut().enumerate() {
             node.prev = i as i32 - 1;
             node.next = i as i32 + 1;
@@ -171,12 +224,16 @@ impl ChainList {
                 node.next = i32::MAX;
             }
         }
-        ChainList { nodes }
+        ChainList { nodes, initial: 0, len: nums.len(), }
+    }
+
+    fn is_empty(&self) -> bool {
+        self.len == 0
     }
 
     fn remove(&mut self, idx: usize) {
         let (prev, next) = if let Some(node) = self.nodes.get_mut(idx) {
-            node.dead = true;
+            node.used = true;
             (node.prev, node.next)
         } else {
             (-1, i32::MAX)
