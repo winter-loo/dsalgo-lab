@@ -75,7 +75,7 @@ fn test_example_3() {
 
     // 3 4 5
     // 1 * 3 * 4, 4 5 => 12 + 25 = 37
-    // 3 * 4 * 5, 3 5 => 60 + 20 = 80 ✓ 
+    // 3 * 4 * 5, 3 5 => 60 + 20 = 80 ✓
     // 4 * 5 * 1, 3 4 => 20 + 16 = 36
 
     // 1 4 5
@@ -92,5 +92,18 @@ fn test_example_3() {
     // 1 * 1 * 3, 3 4 => 3 + 14 = 17
     // 1 * 3 * 4, 1 4 => 12 + 8 = 20 ✓
     // 3 * 4 * 1, 1 3 => 12 + 6 = 18
+}
 
+#[test]
+// #[ignore]
+fn test_many_values_1() {
+    let nums = vec![7, 9, 8, 0, 7, 1, 3, 5, 5, 2, 3];
+    assert_eq!(Solution::max_coins(nums), 1654);
+}
+
+#[test]
+// #[ignore]
+fn test_many_values_2() {
+    let nums = vec![8, 2, 6, 8, 9, 8, 1, 4, 1, 5, 3, 0, 7, 7, 0, 4, 2, 2, 5, 5];
+    assert_eq!(Solution::max_coins(nums), 1654);
 }
