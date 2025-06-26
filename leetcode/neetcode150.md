@@ -120,7 +120,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 118. [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)
 - [x] 119. [Edit Distance](https://leetcode.com/problems/edit-distance/)
 - [x] 120. [Burst Balloons](https://leetcode.com/problems/burst-balloons/)
-- [ ] 121. [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)
+- [x] 121. [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)
 - [-] 122. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 - [-] 123. [Jump Game](https://leetcode.com/problems/jump-game/)
 - [-] 124. [Jump Game II](https://leetcode.com/problems/jump-game-ii/)
