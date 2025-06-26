@@ -298,6 +298,7 @@ impl Solution {
             nums: &[i32],
             neighbor_chain: &ChainList,
             max_sum: &mut i32,
+            // `cargo flamegraph` shows the most of cost is the `mem.insert` operation
             mem: &mut HashMap<Bitmap, i32>,
         ) -> i32 {
             // println!("chain={:?}, bitmap={:?}", neighbor_chain, neighbor_chain.bitmap());
@@ -306,7 +307,7 @@ impl Solution {
                 return 0;
             }
             if let Some(sum) = mem.get(&neighbor_chain.bitmap()) {
-                // println!("────────────────────return sum={sum} from mem────────────────────\n");
+                // println!("────────return sum={sum} from mem───────────────\n");
                 return *sum;
             }
             let mut local_max_sum = 0;
@@ -333,7 +334,7 @@ impl Solution {
             }
             *max_sum = (*max_sum).max(local_max_sum);
             mem.insert(neighbor_chain.bitmap(), local_max_sum);
-            // println!("────────────────────return local_max_sum={local_max_sum}────────────────────\n");
+            // println!("───────────return local_max_sum={local_max_sum}──────────\n");
             local_max_sum
         }
         let mut max_sum = 0;
