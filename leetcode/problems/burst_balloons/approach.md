@@ -1,6 +1,8 @@
 # Approach
 
-The "Burst Balloons" problem asks us to find the maximum coins we can collect by bursting balloons, where bursting the ith balloon gives us nums[i-1] * nums[i] * nums[i+1] coins.
+The "Burst Balloons" problem asks us to find the maximum coins we can
+collect by bursting balloons, where bursting the ith balloon gives us
+`nums[i-1] * nums[i] * nums[i+1]` coins.
 
 ## Strategy
 
@@ -9,12 +11,15 @@ This problem can be solved using:
 2. **Divide and Conquer with Memoization**: Consider the last balloon to burst in each subproblem
 
 ## Dynamic Programming Approach
-1. The key insight is to think about the problem in reverse: instead of considering which balloon to burst first, consider which balloon to burst last
-2. Create a 2D DP table where dp[i][j] represents the maximum coins we can get by bursting all balloons between indices i and j (inclusive)
-3. For each subproblem dp[i][j]:
+1. The key insight is to think about the problem in reverse: instead of
+   considering which balloon to burst first, consider which balloon to burst
+   last
+2. Create a 2D DP table where `dp[i][j]` represents the maximum coins we can get
+   by bursting all balloons between indices i and j (inclusive)
+3. For each subproblem `dp[i][j]`:
    - Consider each balloon k between i and j as the last one to burst
-   - The coins we get are: nums[i-1] * nums[k] * nums[j+1] + dp[i][k-1] + dp[k+1][j]
-4. Return dp[1][n] where n is the number of balloons
+   - The coins we get are: `nums[i-1] * nums[k] * nums[j+1] + dp[i][k-1] + dp[k+1][j]`
+4. Return `dp[1][n]` where n is the number of balloons
 
 ## Time and Space Complexity
 - **Time Complexity**: O(n³) where n is the number of balloons
@@ -47,8 +52,8 @@ function maxCoins(nums):
 ```
 
 ## Alternative Approach: Recursive with Memoization
-1. Use a recursive function that computes the maximum coins for the subarray nums[left...right]
-2. For each position k between left and right, consider it as the last balloon to burst
+1. Use a recursive function that computes the maximum coins for the subarray `nums[left...right]`
+2. For each position `k` between left and right, consider it as the last balloon to burst
 3. Use memoization to avoid recalculating the same subproblems
 
 This approach is more intuitive but may have higher overhead due to the recursion stack.
