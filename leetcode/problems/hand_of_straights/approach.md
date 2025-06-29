@@ -1,6 +1,8 @@
 # Approach
 
-The "Hand of Straights" problem asks us to determine if we can rearrange a hand of cards into groups of consecutive cards, where each group has a fixed size.
+The "Hand of Straights" problem asks us to determine if we can
+rearrange a hand of cards into groups of consecutive cards, where
+each group has a fixed size.
 
 ## Strategy
 
