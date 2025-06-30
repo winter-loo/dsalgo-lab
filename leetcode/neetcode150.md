@@ -126,7 +126,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [-] 124. [Jump Game II](https://leetcode.com/problems/jump-game-ii/)
 - [-] 125. [Gas Station](https://leetcode.com/problems/gas-station/)
 - [x] 126. [Hand of Straights](https://leetcode.com/problems/hand-of-straights/)
-- [ ] 127. [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/)
+- [x] 127. [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/)
 - [ ] 128. [Partition Labels](https://leetcode.com/problems/partition-labels/)
 - [ ] 129. [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)
 - [ ] 130. [Insert Interval](https://leetcode.com/problems/insert-interval/)
