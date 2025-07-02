@@ -70,7 +70,7 @@ fn test_asterisk_as_empty() {
 fn test_asterisk_as_parentheses() {
     // Test case where asterisks need to be treated as parentheses
     let s = String::from("(*))*(");
-    assert!(Solution::check_valid_string(s));
+    assert!(!Solution::check_valid_string(s));
 }
 
 #[test]
@@ -85,3 +85,20 @@ fn test_example_5() {
     assert!(!Solution::check_valid_string(s));
 }
 
+#[test]
+fn test_example_6() {
+    let s = String::from("**()))");
+    assert!(Solution::check_valid_string(s));
+}
+
+#[test]
+fn test_example_7() {
+    let s = String::from("**************************************************))))))))))))))))))))))))))))))))))))))))))))))))))");
+    assert!(Solution::check_valid_string(s));
+}
+
+#[test]
+fn test_example_8() {
+    let s = String::from("(((((*(()((((*((**(((()()*)()()()*((((**)())*)*)))))))(())(()))())((*()()(((()((()*(())*(()**)()(())");
+    assert!(!Solution::check_valid_string(s));
+}
