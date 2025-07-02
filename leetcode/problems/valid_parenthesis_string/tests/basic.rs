@@ -72,3 +72,16 @@ fn test_asterisk_as_parentheses() {
     let s = String::from("(*))*(");
     assert!(Solution::check_valid_string(s));
 }
+
+#[test]
+fn test_example_4() {
+    let s = String::from("((((()(()()()*()(((((*)()*(**(())))))(())()())(((())())())))))))(((((())*)))()))(()((*()*(*)))(*)()");
+    assert!(Solution::check_valid_string(s));
+}
+
+#[test]
+fn test_example_5() {
+    let s = String::from("(((((()*)(*)*))())())(()())())))((**)))))(()())()");
+    assert!(!Solution::check_valid_string(s));
+}
+
