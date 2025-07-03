@@ -1,10 +1,13 @@
 # Approach
 
-The "Insert Interval" problem asks us to insert a new interval into a sorted list of non-overlapping intervals, merging overlapping intervals if necessary.
+The "Insert Interval" problem asks us to insert a new interval into a sorted
+list of non-overlapping intervals, merging overlapping intervals if necessary.
 
 ## Understanding the Problem
 
-We have a sorted list of non-overlapping intervals, and we need to insert a new interval. The key challenge is handling the potential overlaps between the new interval and existing intervals.
+We have a sorted list of non-overlapping intervals, and we need to insert a new
+interval. The key challenge is handling the potential overlaps between the new
+interval and existing intervals.
 
 ## One-Pass Approach
 
@@ -68,4 +71,7 @@ Let's trace through the algorithm with the example: intervals = [[1,3],[6,9]], n
 
 ## Alternative Approach: Binary Search
 
-Since the intervals are sorted, we could use binary search to find the position where the new interval should be inserted. However, we would still need to handle merging, so the one-pass approach is generally simpler and equally efficient.
+Since the intervals are sorted, we could use binary search to find the position
+where the new interval should be inserted. However, we would still need to
+handle merging, so the one-pass approach is generally simpler and equally
+efficient.
