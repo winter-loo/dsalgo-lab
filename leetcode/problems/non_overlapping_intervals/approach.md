@@ -1,20 +1,26 @@
 # Approach
 
-The "Non-overlapping Intervals" problem asks us to find the minimum number of intervals to remove to make the rest non-overlapping.
+The "Non-overlapping Intervals" problem asks us to find the minimum
+number of intervals to remove to make the rest non-overlapping.
 
 ## Understanding the Problem
 
-We need to remove the minimum number of intervals such that no two intervals in the remaining set overlap. This is equivalent to finding the maximum number of non-overlapping intervals we can keep.
+We need to remove the minimum number of intervals such that no two intervals in
+the remaining set overlap. This is equivalent to finding the maximum number of
+non-overlapping intervals we can keep.
 
 ## Greedy Approach
 
 1. Sort the intervals based on their end times.
 2. Greedily select intervals that don't overlap with the previously selected interval.
-3. The number of intervals to remove is the total number of intervals minus the number of intervals we can keep.
+3. The number of intervals to remove is the total number of intervals minus the
+   number of intervals we can keep.
 
 ## Why Sort by End Time?
 
-Sorting by end time is crucial for the greedy approach. By selecting intervals with earlier end times, we leave more room for subsequent intervals, maximizing the number of intervals we can keep.
+Sorting by end time is crucial for the greedy approach. By selecting intervals
+with earlier end times, we leave more room for subsequent intervals, maximizing
+the number of intervals we can keep.
 
 ## Time and Space Complexity
 
@@ -45,17 +51,17 @@ function eraseOverlapIntervals(intervals):
 
 ## Step-by-Step Example
 
-Let's trace through the algorithm with the example: intervals = [[1,2],[2,3],[3,4],[1,3]]
+Let's trace through the algorithm with the example: `intervals = [[1,2],[2,3],[3,4],[1,3]]`
 
-1. Sort the intervals by end time: [[1,2],[2,3],[1,3],[3,4]]
-2. Initialize count = 1, end = 2 (from the first interval [1,2]).
-3. Process [2,3]:
+1. Sort the intervals by end time: `[[1,2],[2,3],[1,3],[3,4]]`
+2. Initialize count = 1, end = 2 (from the first interval `[1,2]`).
+3. Process `[2,3]`:
    - 2 >= 2, so it doesn't overlap with the last selected interval.
    - Update count = 2, end = 3.
-4. Process [1,3]:
+4. Process `[1,3]`:
    - 1 < 3, so it overlaps with the last selected interval.
    - Skip this interval.
-5. Process [3,4]:
+5. Process `[3,4]`:
    - 3 >= 3, so it doesn't overlap with the last selected interval.
    - Update count = 3, end = 4.
 6. Return length(intervals) - count = 4 - 3 = 1.
