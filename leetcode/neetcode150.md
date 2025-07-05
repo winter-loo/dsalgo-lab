@@ -132,7 +132,7 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 130. [Insert Interval](https://leetcode.com/problems/insert-interval/)
 - [x] 131. [Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 - [x] 132. [Non Overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
-- [ ] 133. [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)
+- [-] 133. [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)
 - [ ] 134. [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
 - [ ] 135. [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/)
 - [-] 136. [Rotate Image](https://leetcode.com/problems/rotate-image/)

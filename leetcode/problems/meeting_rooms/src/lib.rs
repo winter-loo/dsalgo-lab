@@ -1,9 +1,17 @@
 pub struct Solution;
 
 impl Solution {
-    // LeetCode 252: Meeting Rooms
-    // Function to determine if a person can attend all meetings
     pub fn can_attend_meetings(intervals: Vec<Vec<i32>>) -> bool {
-        todo!()
+        if intervals.len() < 2 {
+            return true;
+        }
+        let mut x = &intervals[0];
+        for y in &intervals[1..] {
+            if y[0] >= x[0] && y[0] < x[1] {
+                return false;
+            }
+            x = y;
+        }
+        true
     }
 }
