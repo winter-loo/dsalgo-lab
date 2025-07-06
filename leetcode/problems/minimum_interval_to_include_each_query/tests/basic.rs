@@ -55,7 +55,7 @@ fn test_large_intervals() {
     // Test with large intervals
     let intervals = vec![vec![1, 1000000], vec![500000, 600000]];
     let queries = vec![500000, 600001];
-    assert_eq!(Solution::minimum_interval_size(intervals, queries), vec![101, -1]);
+    assert_eq!(Solution::minimum_interval_size(intervals, queries), vec![100001, 1000000]);
 }
 
 #[test]
@@ -65,5 +65,5 @@ fn test_overlapping_intervals() {
         vec![1, 5], vec![2, 6], vec![3, 7], vec![4, 8], vec![5, 9]
     ];
     let queries = vec![3, 6];
-    assert_eq!(Solution::minimum_interval_size(intervals, queries), vec![3, 3]);
+    assert_eq!(Solution::minimum_interval_size(intervals, queries), vec![5, 5]);
 }
