@@ -1,23 +1,32 @@
 # Approach
 
-The "Missing Number" problem asks us to find the missing number in an array containing n distinct numbers in the range [0, n].
+The "Missing Number" problem asks us to find the missing number in an array
+containing n distinct numbers in the range `[0, n]`.
 
 ## Understanding the Problem
 
-We have an array of n distinct numbers in the range [0, n], which means there should be n+1 numbers in total (0 to n inclusive). However, the array only contains n numbers, so one number is missing. We need to find that missing number.
+We have an array of n distinct numbers in the range `[0, n]`, which means there
+should be n+1 numbers in total (0 to n inclusive). However, the array only
+contains n numbers, so one number is missing. We need to find that missing
+number.
 
 ## Approaches
 
 ### 1. Sum Approach
 
-One approach is to use the formula for the sum of the first n natural numbers: `n * (n + 1) / 2`. This gives us the expected sum of all numbers from 0 to n. We can then subtract the actual sum of the numbers in the array to find the missing number.
+One approach is to use the formula for the sum of the first n natural numbers:
+`n * (n + 1) / 2`. This gives us the expected sum of all numbers from 0 to n.
+We can then subtract the actual sum of the numbers in the array to find the
+missing number.
 
 **Time Complexity**: O(n)
 **Space Complexity**: O(1)
 
 ### 2. XOR Approach
 
-Another approach is to use the XOR operation. If we XOR all numbers from 0 to n and all numbers in the array, the missing number will be the result. This works because:
+Another approach is to use the XOR operation. If we XOR all numbers from 0 to n
+and all numbers in the array, the missing number will be the result. This works
+because:
 - XOR of a number with itself is 0.
 - XOR of a number with 0 is the number itself.
 - XOR is commutative and associative.
@@ -57,7 +66,7 @@ function missingNumber(nums):
 
 ## Step-by-Step Example
 
-Let's trace through the sum approach with the example: nums = [3,0,1]
+Let's trace through the sum approach with the example: nums = `[3,0,1]`
 
 1. n = 3
 2. expectedSum = 3 * (3 + 1) / 2 = 6
