@@ -1,10 +1,13 @@
 # Approach
 
-The "Sum of Two Integers" problem asks us to calculate the sum of two integers without using the `+` and `-` operators.
+The "Sum of Two Integers" problem asks us to calculate the sum of two integers
+without using the `+` and `-` operators.
 
 ## Understanding the Problem
 
-We need to find a way to add two integers without using the addition and subtraction operators. This is a classic bit manipulation problem that requires understanding how addition works at the bit level.
+We need to find a way to add two integers without using the addition and
+subtraction operators. This is a classic bit manipulation problem that requires
+understanding how addition works at the bit level.
 
 ## Bit Manipulation Approach
 
@@ -49,13 +52,19 @@ Let's trace through the algorithm with a = 2 (10 in binary) and b = 3 (11 in bin
 
 ## Handling Negative Numbers
 
-The above approach works for both positive and negative numbers in languages that use two's complement representation for negative numbers (which most modern languages do). This is because the XOR and AND operations work on the bit level, regardless of whether the number is positive or negative.
+The above approach works for both positive and negative numbers in languages
+that use two's complement representation for negative numbers (which most
+modern languages do). This is because the XOR and AND operations work on the
+bit level, regardless of whether the number is positive or negative.
 
 ## Language-Specific Considerations
 
-In some languages, like JavaScript, the bitwise operations convert the operands to 32-bit integers, which can cause issues with large numbers. In such cases, we might need to handle the overflow explicitly.
+In some languages, like JavaScript, the bitwise operations convert the operands
+to 32-bit integers, which can cause issues with large numbers. In such cases,
+we might need to handle the overflow explicitly.
 
-In Rust, the bitwise operations work as expected for 32-bit integers, so we don't need any special handling.
+In Rust, the bitwise operations work as expected for 32-bit integers, so we
+don't need any special handling.
 
 ## Alternative Approaches
 
