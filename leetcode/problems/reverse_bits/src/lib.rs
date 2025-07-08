@@ -1,9 +1,11 @@
 pub struct Solution;
 
 impl Solution {
-    // LeetCode 190: Reverse Bits
-    // Function to reverse bits of a given 32 bits unsigned integer
     pub fn reverse_bits(x: u32) -> u32 {
-        todo!()
+        let mut a = 0;
+        for i in (0..32).rev() {
+            a += ((x >> (32 - i - 1)) & 0x01) << i;
+        }
+        a
     }
 }
