@@ -1,9 +1,14 @@
 pub struct Solution;
 
 impl Solution {
-    // LeetCode 191: Number of 1 Bits
-    // Function to count the number of '1' bits in an unsigned integer
-    pub fn hammingWeight(n: u32) -> i32 {
-        todo!()
+    pub fn hamming_weight(mut n: i32) -> i32 {
+        let mut count = 0;
+        while n != 0 {
+            if n & 0x01 == 1 {
+                count += 1;
+            }
+            n >>= 1;
+        }
+        count
     }
 }

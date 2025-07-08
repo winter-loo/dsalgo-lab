@@ -1,9 +1,21 @@
 pub struct Solution;
 
 impl Solution {
-    // LeetCode 338: Counting Bits
-    // Function to count the number of 1's in the binary representation of each number from 0 to n
     pub fn count_bits(n: i32) -> Vec<i32> {
-        todo!()
+        if n < 0 {
+            return vec![];
+        }
+        if n == 0 {
+            return vec![0];
+        }
+        if n == 1 {
+            return vec![0, 1];
+        }
+        let mut answer = vec![0, 1];
+        for i in 2..=n {
+            let k = i & (i - 1);
+            answer.push(answer[k as usize] + 1);
+        }
+        answer
     }
 }
