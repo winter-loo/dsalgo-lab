@@ -1,5 +1,7 @@
 Problems relying heavily on math insights are marked with deleting line.
 
+NOTE: `- [-]` for math-related problems or leetcode-member-only problems
+
 - [x]  1. [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 - [x]  2. [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 - [x]  3. [Two Sum](https://leetcode.com/problems/two-sum/)
