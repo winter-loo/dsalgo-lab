@@ -1,6 +1,8 @@
 # Approach
 
-The "Reverse Integer" problem asks us to reverse the digits of a signed 32-bit integer, with the constraint that if the reversed integer overflows (goes outside the range of a signed 32-bit integer), we should return 0.
+The "Reverse Integer" problem asks us to reverse the digits of a signed 32-bit
+integer, with the constraint that if the reversed integer overflows (goes
+outside the range of a signed 32-bit integer), we should return 0.
 
 ## Understanding the Problem
 
