@@ -148,5 +148,5 @@ Problems relying heavily on math insights are marked with deleting line.
 - [x] 146. [Counting Bits](https://leetcode.com/problems/counting-bits/)
 - [x] 147. [Reverse Bits](https://leetcode.com/problems/reverse-bits/)
 - [x] 148. [Missing Number](https://leetcode.com/problems/missing-number/)
-- [ ] 149. [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)
-- [ ] 150. [Reverse Integer](https://leetcode.com/problems/reverse-integer/)
+- [x] 149. [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)
+- [x] 150. [Reverse Integer](https://leetcode.com/problems/reverse-integer/)
